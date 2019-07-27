@@ -1,28 +1,66 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
+    <div class="cvinput">
+      
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+
+          <personal-elem :title="titles.personal"/>
+          <summary-elem :title="titles.summary"/>
+          <education-elem :title="titles.education" />
+          <work-elem :title="titles.work" />
+        </div>
+        <a class="nextButton" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="">next</span>
+        </a>
+      </div>
+    
+    </div>
+    <div class="container">
+      <cv-component />
+    </div>
   </div>
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
+import personalElem from './components/formComponents/personalElem.vue'
+import summaryElem from './components/formComponents/summaryElem.vue'
+import educationElem from './components/formComponents/educationElem.vue'
+import workElem from './components/formComponents/workElem.vue'
+
+import { mapState, mapGetters } from 'vuex'
+
+import './assets/css/all.min.css'
+
+import cvComponent from './components/cvComponent.vue'
+
 
 export default {
   name: 'app',
+  data: function() {
+    return {
+
+    }
+  },
   components: {
-    HelloWorld
+    HelloWorld,
+    personalElem,
+    summaryElem,
+    educationElem,
+    workElem,
+    cvComponent
+  },
+  computed: {
+    ...mapState({
+      titles: 'titles',
+    })
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

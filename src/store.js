@@ -1,0 +1,112 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+    state: {
+        titleWindow: false,
+
+        titles: {
+            personal: 'personal info',
+            summary: 'summary',
+            education: 'education',
+            work: 'work & experience',
+            skills: 'skills',
+            languages: 'languages',
+            certificates: 'certificates',
+            training: 'training',
+            links: 'links'
+        },
+        personal: {
+            firstName: 'ibrahim',
+            lastName: 'ahmad',
+            email: 'ibra16@itc.edu.jo',
+            phone: '+962 78 0636 170',
+            birthday: '14 Jul. 1995',
+            address: 'Marka, Amman',
+            summary: ''
+        },
+        education: [{
+            name: 'Software Engineering',
+            school: 'Hashemite University',
+            start: '2018',
+            end: '2021',
+            grade: 'Excellent',
+            disc: 'any',
+        }],
+        work: [{
+            company: 'a',
+            major: 'b',
+            start: 'c',
+            end: 'd',
+            disc: 'e'
+        }],
+        skills: {},
+        languages: {},
+        certificates: {},
+        training: {},
+        links: {},
+        newSections: {
+
+        }
+
+    },
+    mutations: {
+        updateTitle(state, titleObj) {
+            state.titles[titleObj.target] = titleObj.title
+        },
+        showTitleInput(state) {
+            state.titleWindow = true
+        },
+        hideTitleInput(state) {
+            state.titleWindow = false;
+        },
+        createObj(state, val) {
+            Vue.set(state.titles, 'newProp', {num: 123})
+        },
+
+        updateObj(state, [[objName, key], val]) {
+            state[objName][key] = val;
+        },
+        updateObjAry(state, [[objName, varname, index], val]) {
+            state[objName][index][varname] = val
+        },
+        addObj(state, objName) {
+            state[objName].push({
+                name    : '',
+                school    : '',
+                start  : '',
+                end    : '',
+                grade     : '',
+                disc     : ''
+            });
+        },
+        updateVar(state, [varname, val]) {
+            state[varname] = val
+        }
+    },
+    actions: {
+        expMe(state) {
+            console.log(state.state)
+        },
+        updateVar(state, [target, val]) {
+        
+            if (target.includes('|')) {
+                const obj = target.split('|');
+                state.commit('updateObjAry', [obj, val])
+            } else if (target.includes('.')) {
+                const obj = target.split('.');
+                state.commit('updateObj', [obj, val])
+            } else {
+                state.commit('updateVar', [obj, val])
+            }
+        
+        }
+    },
+    getters: {
+        getTitles: state => {
+            return state.titles
+        }
+    }
+})

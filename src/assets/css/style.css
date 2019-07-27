@@ -1,0 +1,26 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.cvinput {
+    border: 2px solid rgb(35, 35, 206);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.nextButton {
+    background-color: rgb(35, 35, 206);
+    color: white;
+    padding: 10px 90px;
+    border-radius: 25%;
+    margin-top: 30px;
+    display: inline-block
+}
+.carousel-item h1 {
+    cursor: pointer;
+}
+.carousel-item span {
+    color: blueviolet;
+    /* text-decoration: underline; */
+    font-weight: bold
+}
