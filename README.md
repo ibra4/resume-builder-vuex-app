@@ -1,4 +1,4 @@
-# resume-live-builder-vue-app
+# resume-live-builder-vuex-app
 
 ## Project setup
 ```
