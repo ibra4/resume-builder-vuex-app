@@ -4,30 +4,21 @@
     <div class="cvbody" id="cvbody">
       <div class="top-line"></div>
         
+        <!-- personal.vue -->
         <personal :title="titles.personal"/>
 
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
             
+            <!-- education.vue -->
             <education :title="titles.education" />
             
+            <!-- work.vue -->
             <work :title="titles.work" />
 
-            <div class="para lang">
-              <div class="title">
-                  <span><i class="fas fa-language"></i></span>languages
-              </div>
-              <div class="exp">
-                  <div>
-                    <span>English</span><span>Very Good</span>
-                  </div>
-                  <hr style="background-color: #e4e9ed; width: 70%">
-                  <div>
-                    <span>Arabic</span><span>Mother Tongue</span>
-                  </div>
-              </div>
-            </div>
+            <languages :title="titles.languages"/>
+            
             <div class="para projects">
               <div class="title">
                   <span><i class="fas fa-tasks"></i></span>projects

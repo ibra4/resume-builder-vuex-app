@@ -1,17 +1,20 @@
 <template>
     <div id="floatingInput">
+        <label>Set new Title for `{{ title }}`</label>
         <input type="text" class="form-control" v-model="updatedTitle"/>
-        <form-control :name="'set new name title of `' + title + ' `'"  />
+        <!-- <form-control :targetElem="'titles.personal'" :name="'set new name title of `' + title + ' `'"  /> -->
         <button @click="editTitle">save</button>
     </div>
 </template>
 
 <script>
 import formControl from './formControl.vue'
+import { mapState } from 'vuex';
 
 export default {
     props: {
         title: String,
+        targetElem: String
     },
     components: {
         formControl
@@ -19,16 +22,19 @@ export default {
     data: function() {
         return {
             updatedTitle: '',
+            titleWindow: ''
         }
     },
     methods: {
         editTitle() {
-            this.$store.commit('updateTitle',{
-                target: this.targetElem,
-                title: this.updatedTitle
-            });
-            this.$store.commit('hideTitleInput')
+            this.$store.commit('updateTitle',[this.targetElem, this.updatedTitle]);
+            this.$emit('hideWindow', false)
         }
+    },
+    computed: {
+        ...mapState({
+            titles: state => state.titles
+        })
     }
 }
 </script>
@@ -37,7 +43,9 @@ export default {
 #floatingInput {
   position: absolute;
   z-index: 50;
+  top: 200px;
   padding: 50px;
   background-color: blueviolet;
+  color: #fff
 }
 </style>

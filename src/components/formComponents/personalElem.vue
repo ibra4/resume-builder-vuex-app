@@ -1,8 +1,8 @@
 <template>
-    <div class="carousel-item">
+    <div class="carousel-item active">
       <!-- <button @click="expMe">exp</button> -->
       
-      <titleEditor v-if="titleWindow" :title="this.title" :targetElem="targetElem"/>
+      <titleEditor v-if="this.titleWindow" :title="this.title" :targetElem="targetElem" @hideWindow="setWindow"/>
 
       <h6 class="text-secondary">
         click the title to edit <i class="fa fa-arrow-down"></i>
@@ -59,7 +59,8 @@ export default {
     ],
     data: function() {
         return {
-            targetElem: 'personal'
+            targetElem: 'personal',
+            titleWindow: false
         }
     },
     components: {
@@ -68,15 +69,18 @@ export default {
     },
     methods: {
       editTitle: function() {
+        this.titleWindow = true
         this.$store.commit('showTitleInput')
       },
       expMe() {
         this.$store.dispatch('expMe')
+      },
+      setWindow(visible) {
+        this.titleWindow = visible
       }
     },
     computed: {
       ...mapState({
-        titleWindow: 'titleWindow',
         personal: state => state.personal
       }),
     }

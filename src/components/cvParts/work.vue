@@ -8,6 +8,7 @@
     <div>{{ w.company }}</div>
     <div class="clearer"></div>
     <div class="spec">{{ w.major }}</div>
+    <p>{{ w.disc }}</p>
     <ul class="work-list">
       <li>Reviewed code, debugged problems and corrected issus</li>
       <li>Making a creative MVC PHP Frameworks</li>

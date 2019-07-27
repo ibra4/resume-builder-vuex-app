@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item active">
+    <div class="carousel-item">
         <h6 class="text-secondary">
           click the title to edit <i class="fa fa-arrow-down"></i>
         </h6>
@@ -24,9 +24,10 @@
                     <form-control :targetElem="'work|end|' + index" :name="'to'"/>
                 </div>
             </div>
+            <button class="btn btn-primary">add list</button>
             <div class="row">
                 <div class="col-md-12">
-                    <form-control :targetElem="'work|disc|' + index" :name="'discripiton'"/>
+                    <text-area :targetElem="'work|disc|' + index" :label="'discripiton'"/>
                 </div>
             </div>
             <div class="hr"></div>
@@ -38,6 +39,7 @@
 <script>
 
 import formControl from '../generalComponents/formControl.vue'
+import textArea from '../generalComponents/textArea.vue'
 import titleEditor from '../generalComponents/titleEditor.vue'
 
 import { mapState, mapGetters } from 'vuex'
@@ -53,6 +55,7 @@ export default {
     },
     components: {
         formControl,
+        textArea,
         titleEditor
     },
     methods : {

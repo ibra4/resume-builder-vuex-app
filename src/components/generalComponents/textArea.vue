@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <div class="form-group">
-            <label>{{ name }}</label>
-            <input type="text" :value="val" class="form-control" @input="updateVar">
-        </div>
+    <div class="form-group">
+      <label for="te">{{ label }}</label>
+      <textarea class="form-control rounded-0" id="te" rows="4" @input="updateVar"></textarea>
     </div>
 </template>
 
@@ -11,7 +9,7 @@
 
 export default {
     props: {
-        name: String,
+        label: String,
         targetElem: String,
         val: String
     },
@@ -21,7 +19,7 @@ export default {
     },
     methods: {
         updateVar(e) {
-            // console.log(this.targetElem)
+            console.log(e.target.value);
             this.$store.dispatch('updateVar', [this.targetElem, e.target.value])
         }
     }
