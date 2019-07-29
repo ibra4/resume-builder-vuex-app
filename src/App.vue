@@ -70,5 +70,7 @@ export default {
 </script>
 
 <style>
-
+.carousel-inner .carousel-item {
+  min-height: 300px;
+}
 </style>
