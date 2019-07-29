@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import formControl from './formControl.vue'
+
 import { mapState } from 'vuex';
 
 export default {
@@ -16,12 +16,9 @@ export default {
         title: String,
         targetElem: String
     },
-    components: {
-        formControl
-    },
     data: function() {
         return {
-            updatedTitle: '',
+            updatedTitle: this.title,
             titleWindow: ''
         }
     },
@@ -44,7 +41,7 @@ export default {
 #floatingInput {
   position: absolute;
   z-index: 50;
-  top: 200px;
+  /* top: 200px; */
   padding: 50px;
   background-color: blueviolet;
   color: #fff

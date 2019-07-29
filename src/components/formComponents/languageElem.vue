@@ -2,7 +2,7 @@
     <div class="carousel-item">
         
         <titleForm :title="title" :target="'languages'" />
-        
+
         <button @click="addLanguage" class="btn btn-primary" style="float: right; margin-right:50px;">Add Language</button>
 
     </div>
@@ -10,10 +10,10 @@
 
 <script>
 
-import formControl from '../generalComponents/formControl.vue'
+// import formControl from '../generalComponents/formControl.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     props: [
@@ -25,7 +25,7 @@ export default {
         }
     },
     components: {
-        formControl,
+        // formControl,
         titleForm
     },
     methods : {

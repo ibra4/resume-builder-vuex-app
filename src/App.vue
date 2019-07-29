@@ -7,11 +7,18 @@
         <div class="carousel-inner">
 
           <personal-elem :title="titles.personal"/>
+
           <summary-elem :title="titles.summary"/>
+
           <education-elem :title="titles.education" />
+
           <work-elem :title="titles.work" />
+
           <language-elem :title="titles.languages" />
+          
         </div>
+
+        
         <a class="nextButton" href="#carouselExampleIndicators" role="button" data-slide="next">
           <span class="">next</span>
         </a>
@@ -26,14 +33,13 @@
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
 import personalElem from './components/formComponents/personalElem.vue'
 import summaryElem from './components/formComponents/summaryElem.vue'
 import educationElem from './components/formComponents/educationElem.vue'
 import workElem from './components/formComponents/workElem.vue'
 import languageElem from './components/formComponents/languageElem.vue'
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 import './assets/css/all.min.css'
 
@@ -48,7 +54,6 @@ export default {
     }
   },
   components: {
-    HelloWorld,
     personalElem,
     summaryElem,
     educationElem,
