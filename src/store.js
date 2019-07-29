@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
 
+        summary: '',
+        jobTitle: '',
+
         titles: {
             personal: 'personal info',
             summary: 'summary',
@@ -96,8 +99,8 @@ export default new Vuex.Store({
                 const obj = target.split('.');
                 state.commit('updateObj', [obj, val])
             } else {
-                // console.log('single')
-                state.commit('updateVar', [obj, val])
+                console.log('single')
+                state.commit('updateVar', [target, val])
             }
         
         }

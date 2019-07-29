@@ -6,8 +6,8 @@
       </div>
       <div class="summary">
         <h1 class="title" style="color: #9654d8">{{ fullName }}</h1>
-        <h2 class="title">- Full Stack Web Developer</h2>
-        <p> {{ personal.summary }}</p>
+        <h2 class="title">- {{ jobTitle }}</h2>
+        <p> {{ summary }}</p>
       </div>
     </div>
     <div class="header-right info">
@@ -37,7 +37,9 @@ export default {
     ],
     computed:{
         ...mapState({
-            personal: 'personal'
+            personal: 'personal',
+            summary: 'summary',
+            jobTitle: 'jobTitle'
         }),
         fullName() {
             return this.personal.firstName + ' ' + this.personal.lastName 

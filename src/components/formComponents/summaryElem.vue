@@ -11,15 +11,14 @@
       <h1 class="title" @click="editTitle">
           {{title}}
       </h1>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea3"></label>
-        <textarea class="form-control" @input="" rows="6"></textarea>
-      </div>
+      <form-control :targetElem="'jobTitle'" :name="'Job Title'"/>
+      <text-area :targetElem="'summary'" :label="'short discription'"/>
     </div>
 </template>
 
 <script>
 
+import textArea from '../generalComponents/textArea.vue'
 import formControl from '../generalComponents/formControl.vue'
 import titleEditor from '../generalComponents/titleEditor.vue'
 
@@ -29,10 +28,11 @@ export default {
     props: ['title'],
     data: function() {
         return {
-            summary: ''
+            // summary: ''
         }
     },
     components: {
+        textArea,
         formControl,
         titleEditor
     },
@@ -43,7 +43,8 @@ export default {
     },
     computed: {
       ...mapState({
-        titleWindow: 'titleWindow'
+        titleWindow: 'titleWindow',
+        summary: state => state.summary
       }),
     }
 }

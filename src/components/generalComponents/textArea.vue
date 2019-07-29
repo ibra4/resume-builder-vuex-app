@@ -19,7 +19,6 @@ export default {
     },
     methods: {
         updateVar(e) {
-            console.log(e.target.value);
             this.$store.dispatch('updateVar', [this.targetElem, e.target.value])
         }
     }
