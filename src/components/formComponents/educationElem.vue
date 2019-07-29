@@ -27,12 +27,12 @@
                     <form-control :targetElem="'education|grade|' + index" :name="'grade'"/>
                 </div>
             </div>
-            <div class="row">
+            <div class="row">ss
                 <div class="col-md-12">
-                    <form-control :targetElem="'education|disc|' + index" :name="'discripiton'"/>
+                    <text-area :targetElem="'education|disc|' + index" :label="'discripiton'"/>
                 </div>
             </div>
-            <div class="hr"></div>
+            <!-- <div class="hr"></div> -->
         </div>
         <titleEditor v-if="titleWindow" :title="this.title" :targetElem="targetElem"/>
     </div>
@@ -41,6 +41,7 @@
 <script>
 
 import formControl from '../generalComponents/formControl.vue'
+import textArea from '../generalComponents/textArea.vue'
 import titleEditor from '../generalComponents/titleEditor.vue'
 
 import { mapState, mapGetters } from 'vuex'
@@ -56,6 +57,7 @@ export default {
     },
     components: {
         formControl,
+        textArea,
         titleEditor
     },
     methods : {

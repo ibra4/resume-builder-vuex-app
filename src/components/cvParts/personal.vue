@@ -7,7 +7,6 @@
       <div class="summary">
         <h1 class="title" style="color: #9654d8">{{ fullName }}</h1>
         <h2 class="title">- Full Stack Web Developer</h2>
-        <h2 class="title">- UI / UX Designer</h2>
         <p> {{ personal.summary }}</p>
       </div>
     </div>
@@ -20,7 +19,7 @@
           <i class="fas fa-birthday-cake"></i> <span>{{ personal.birthday }}</span>
       </div>
       <div>
-        <i class="fas fa-envelope-open"></i> <span>{{ personal.birthday }}</span>
+        <i class="fas fa-envelope-open"></i> <span>{{ personal.email }}</span>
       </div>
       <div>
         <i class="fas fa-phone"></i> <span>{{ personal.phone }}</span>

@@ -9,6 +9,7 @@
     <div class="clearer"></div>
     <div class="spec">{{ edu.name }}</div>
     <p>degree : {{ edu.grade }}</p>
+    <p> {{ edu.disc }} </p>
   </div>
 </div>
 </template>
