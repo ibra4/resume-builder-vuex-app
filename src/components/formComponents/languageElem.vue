@@ -1,11 +1,8 @@
 <template>
     <div class="carousel-item">
-        <h6 class="text-secondary">
-          click the title to edit <i class="fa fa-arrow-down"></i>
-        </h6>
-        <h1 class="title" @click="editTitle">
-            {{title}}
-        </h1>
+        
+        <titleForm :title="title" :target="'languages'" />
+        
         <button @click="addLanguage" class="btn btn-primary" style="float: right; margin-right:50px;">Add Language</button>
 
     </div>
@@ -14,7 +11,7 @@
 <script>
 
 import formControl from '../generalComponents/formControl.vue'
-import titleEditor from '../generalComponents/titleEditor.vue'
+import titleForm from '../generalComponents/titleForm.vue'
 
 import { mapState, mapGetters } from 'vuex'
 
@@ -29,7 +26,7 @@ export default {
     },
     components: {
         formControl,
-        titleEditor
+        titleForm
     },
     methods : {
         editTitle() {

@@ -8,6 +8,7 @@ export default new Vuex.Store({
 
         summary: '',
         jobTitle: '',
+        titleWindow: false,
 
         titles: {
             personal: 'personal info',
@@ -67,12 +68,13 @@ export default new Vuex.Store({
             state.titleWindow = false;
         },
         createObj(state, val) {
+            val;
             Vue.set(state.titles, 'newProp', {num: 123})
         },
 
         updateObj(state, [[objName, key], val]) {
             // console.log(val);
-            console.log(key);
+            // console.log(key);
             state[objName][key] = val;
         },
         updateObjAry(state, [[objName, varname, index], val]) {
@@ -87,7 +89,8 @@ export default new Vuex.Store({
     },
     actions: {
         expMe(state) {
-            console.log(state.state)
+            state;
+            // console.log(state.state)
         },
         updateVar(state, [target, val]) {
             // console.log(target);
@@ -99,7 +102,7 @@ export default new Vuex.Store({
                 const obj = target.split('.');
                 state.commit('updateObj', [obj, val])
             } else {
-                console.log('single')
+                // console.log('single')
                 state.commit('updateVar', [target, val])
             }
         

@@ -1,15 +1,9 @@
 <template>
-    <div class="carousel-item active">
+    <div class="carousel-item">
       <!-- <button @click="expMe">exp</button> -->
       
-      <titleEditor v-if="this.titleWindow" :title="this.title" :targetElem="targetElem" @hideWindow="setWindow"/>
+      <titleForm :title="title" :target="'personal'" />
 
-      <h6 class="text-secondary">
-        click the title to edit <i class="fa fa-arrow-down"></i>
-      </h6>
-      <h1 class="title" @click="editTitle">
-          {{title}}
-      </h1>
 
       <div class="row">
         <div class="col-md-3 col-sm-6">
@@ -49,9 +43,10 @@
 <script>
 
 import formControl from '../generalComponents/formControl.vue'
-import titleEditor from '../generalComponents/titleEditor.vue'
+import titleForm from '../generalComponents/titleForm.vue'
 
-import { mapState, mapGetters } from 'vuex'
+
+import { mapState } from 'vuex'
 
 export default {
     props: [
@@ -65,7 +60,7 @@ export default {
     },
     components: {
         formControl,
-        titleEditor
+        titleForm
     },
     methods: {
       editTitle: function() {

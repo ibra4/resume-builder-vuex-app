@@ -1,11 +1,8 @@
 <template>
     <div class="carousel-item">
-        <h6 class="text-secondary">
-          click the title to edit <i class="fa fa-arrow-down"></i>
-        </h6>
-        <h1 class="title" @click="editTitle">
-            {{title}}
-        </h1>
+        
+        <titleForm :title="title" :target="'education'" />
+        
         <button @click="addEdu" class="btn btn-primary" style="float: right; margin-right:50px;">Add Education</button>
         <div v-for="(edu, index) in education" :key="index">
             <div class="row">
@@ -42,14 +39,11 @@
 
 import formControl from '../generalComponents/formControl.vue'
 import textArea from '../generalComponents/textArea.vue'
-import titleEditor from '../generalComponents/titleEditor.vue'
-
-import { mapState, mapGetters } from 'vuex'
+import titleForm from '../generalComponents/titleForm.vue'
+import { mapState } from 'vuex'
 
 export default {
-    props: [
-        'title'
-    ],
+    props: ['title'],
     data: () => {
         return {
             targetElem: 'education'
@@ -58,7 +52,7 @@ export default {
     components: {
         formControl,
         textArea,
-        titleEditor
+        titleForm
     },
     methods : {
         editTitle() {

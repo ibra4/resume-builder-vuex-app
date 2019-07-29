@@ -1,11 +1,8 @@
 <template>
-    <div class="carousel-item">
-        <h6 class="text-secondary">
-          click the title to edit <i class="fa fa-arrow-down"></i>
-        </h6>
-        <h1 class="title" @click="editTitle">
-            {{title}}
-        </h1>
+    <div class="carousel-item active">
+        
+        <titleForm :title="title" :target="'work'" />
+
         <button @click="addWork" class="btn btn-primary" style="float: right; margin-right:50px;">Add Work</button>
         <div v-for="(w, index) in work" :key="index">
             <div class="row">
@@ -32,7 +29,6 @@
             </div>
             <div class="hr"></div>
         </div>
-        <titleEditor v-if="titleWindow" :title="this.title" :targetElem="targetElem"/>
     </div>
 </template>
 
@@ -40,14 +36,12 @@
 
 import formControl from '../generalComponents/formControl.vue'
 import textArea from '../generalComponents/textArea.vue'
-import titleEditor from '../generalComponents/titleEditor.vue'
+import titleForm from '../generalComponents/titleForm.vue'
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-    props: [
-        'title'
-    ],
+    props: ['title'],
     data: () => {
         return {
             targetElem: 'work'
@@ -56,7 +50,7 @@ export default {
     components: {
         formControl,
         textArea,
-        titleEditor
+        titleForm
     },
     methods : {
         editTitle() {

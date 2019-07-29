@@ -27,6 +27,7 @@ export default {
     },
     methods: {
         editTitle() {
+            alert(this.targetElem)
             this.$store.commit('updateTitle',[this.targetElem, this.updatedTitle]);
             this.$emit('hideWindow', false)
         }
