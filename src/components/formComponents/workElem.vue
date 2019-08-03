@@ -1,10 +1,9 @@
 <template>
-    <div class="carousel-item active">
+    <div class="carousel-item">
         
         <titleForm :title="title" :target="'work'" />
 
-        <button @click="addWork" class="btn btn-primary" style="float: right; margin-right:50px;">Add Work</button>
-        <div v-for="(w, index) in work" :key="index">
+        <div v-for="(w, index) in work" :key="index" class="bg-success">
             <div class="row">
                 <div class="col-md-6">
                     <form-control :targetElem="'work|company|' + index" :name="'company'"/>
@@ -21,12 +20,14 @@
                     <form-control :targetElem="'work|end|' + index" :name="'to'"/>
                 </div>
             </div>
-            <button class="btn btn-primary">add list</button>
+            <!-- <button class="btn btn-primary">add list</button> -->
             <div class="row">
                 <div class="col-md-12">
                     <text-area :targetElem="'work|disc|' + index" :label="'discripiton'"/>
                 </div>
             </div>
+            <button @click="addWork" class="btn btn-primary">Save this work</button>
+
             <div class="hr"></div>
         </div>
     </div>

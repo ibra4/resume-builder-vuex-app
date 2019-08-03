@@ -45,7 +45,9 @@ export default new Vuex.Store({
             end: 'd',
             disc: 'e'
         }],
-        skills: {},
+        skills: [{
+            skill: '',
+        }],
         languages: [
             {lang: 'arabic', level: 'fluent'}
         ],
@@ -73,8 +75,6 @@ export default new Vuex.Store({
         },
 
         updateObj(state, [[objName, key], val]) {
-            // console.log(val);
-            // console.log(key);
             state[objName][key] = val;
         },
         updateObjAry(state, [[objName, varname, index], val]) {
@@ -90,22 +90,17 @@ export default new Vuex.Store({
     actions: {
         expMe(state) {
             state;
-            // console.log(state.state)
         },
         updateVar(state, [target, val]) {
-            // console.log(target);
             if (target.includes('|')) {
                 const obj = target.split('|');
                 state.commit('updateObjAry', [obj, val])
             } else if (target.includes('.')) {
-                // console.log('dot')
                 const obj = target.split('.');
                 state.commit('updateObj', [obj, val])
             } else {
-                // console.log('single')
                 state.commit('updateVar', [target, val])
             }
-        
         }
     },
     getters: {

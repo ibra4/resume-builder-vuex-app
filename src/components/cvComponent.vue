@@ -44,28 +44,9 @@
             </div>
         </div>
         <div class="section-right">
-          <div class="para skills">
-            <div class="title">
-                <span class="first-right"><i class="fas fa-swimmer"></i></span>skills
-            </div>
-              <ul class="no-style">
-                <li class="main">
-                  <i class="fas fa-haykal"></i> Front-end Development
-                </li>
-                <li>User interface understandings</li>
-                <li>Skilled in CSS animation</li>
-                <li>High skilled in javascript</li>
-                <li>Properly working with javascript frameworks</li>
-                <li class="main" style="margin-top: 20px;">
-                  <i class="fas fa-haykal"></i> Back-end Development
-                </li>
-                <li>Code validation skills</li>
-                <li>Professional PHP programmer</li>
-                <li>High skilled in MVC pattern</li>
-                <li>Knowledge in MYSQL Databases</li>
-                <li>Good understanding of web <span style="color: #bb2124">VULNERABILITIES</span> and security</li>
-              </ul>
-          </div>
+          
+            <skills :title="titles.skills"/>
+
           <div class="para pro-lang">
               <div class="title">
                   <span><i class="fas fa-code"></i></span>programming languages
@@ -135,13 +116,15 @@ import personal from './cvParts/personal.vue'
 import education from './cvParts/education.vue'
 import work from './cvParts/work.vue'
 import languages from './cvParts/languages.vue'
+import skills from './cvParts/skills.vue'
 
 export default {
     components: {
         personal,
         education,
         work,
-        languages
+        languages,
+        skills
     },
     computed: mapState([
         'titles'

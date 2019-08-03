@@ -16,6 +16,8 @@
 
           <language-elem :title="titles.languages" />
           
+          <skills-elem :title="titles.skills" />
+          
         </div>
 
         
@@ -38,6 +40,7 @@ import summaryElem from './components/formComponents/summaryElem.vue'
 import educationElem from './components/formComponents/educationElem.vue'
 import workElem from './components/formComponents/workElem.vue'
 import languageElem from './components/formComponents/languageElem.vue'
+import skillsElem from './components/formComponents/skillsElem.vue'
 
 import { mapState } from 'vuex'
 
@@ -59,6 +62,7 @@ export default {
     educationElem,
     workElem,
     languageElem,
+    skillsElem,
     cvComponent
   },
   computed: {
