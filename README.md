@@ -6,7 +6,7 @@
 
 [![Known Vulnerabilities](https://snyk.io//test/github/ibra4/resume-live-builder-vuex-app/badge.svg?targetFile=package.json)](https://snyk.io//test/github/ibra4/resume-live-builder-vuex-app?targetFile=package.json)
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ibra4/resume-live-builder-vuex-app)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ibra4/resume-live-builder-vuex-app/issues)
 
 
 
