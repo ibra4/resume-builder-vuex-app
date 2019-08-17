@@ -13,10 +13,6 @@ export default {
         targetElem: String,
         val: String
     },
-    data: function() {
-        return {
-        }
-    },
     methods: {
         updateVar(e) {
             this.$store.dispatch('updateVar', [this.targetElem, e.target.value])

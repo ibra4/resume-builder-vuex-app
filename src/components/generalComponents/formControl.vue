@@ -15,13 +15,8 @@ export default {
         targetElem: String,
         val: String
     },
-    data: function() {
-        return {
-        }
-    },
     methods: {
         updateVar(e) {
-            // console.log(this.targetElem)
             this.$store.dispatch('updateVar', [this.targetElem, e.target.value])
         }
     }

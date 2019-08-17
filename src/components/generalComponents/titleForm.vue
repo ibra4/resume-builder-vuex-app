@@ -29,7 +29,6 @@ export default {
     },
     methods: {
       editTitle: function() {
-        // this.$store.commit('showTitleInput')
         this.titleWindow = true;
       },
       setWindow(visible) {

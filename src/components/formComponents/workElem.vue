@@ -1,35 +1,38 @@
 <template>
     <div class="carousel-item">
         
-        <titleForm :title="title" :target="'work'" />
+        <titleForm :title="title" :target="objName" />
 
-        <div v-for="(w, index) in work" :key="index" class="bg-success">
+        <div v-for="w in obj" :key="w.id">
             <div class="row">
                 <div class="col-md-6">
-                    <form-control :targetElem="'work|company|' + index" :name="'company'"/>
+                    <form-control :targetElem="objName + '|' + 'company' + '|' + w.id" :name="'major'"/>
                 </div>
                 <div class="col-md-6">
-                    <form-control :targetElem="'work|major|' + index" :name="'major'"/>
+                    <form-control :targetElem="objName + '|' + 'major' + '|' + w.id" :name="'major'"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <form-control :targetElem="'work|start|' + index" :name="'from'"/>
+                    <form-control :targetElem="objName + '|' + 'start' + '|' + w.id" :name="'from'"/>
                 </div>
                 <div class="col-md-4">
-                    <form-control :targetElem="'work|end|' + index" :name="'to'"/>
+                    <form-control :targetElem="objName + '|' + 'end' + '|' + w.id" :name="'to'"/>
                 </div>
             </div>
             <!-- <button class="btn btn-primary">add list</button> -->
             <div class="row">
                 <div class="col-md-12">
-                    <text-area :targetElem="'work|disc|' + index" :label="'discripiton'"/>
+                    <text-area :targetElem="objName + '|' + 'disc' + '|' + w.id" :label="'discripiton'"/>
                 </div>
             </div>
-            <button @click="addWork" class="btn btn-primary">Save this work</button>
+            <button v-if="obj.length > 1" @click="deleteObj(w.id)" class="btn btn-danger" style="float: right">delete {{w.id}} </button>
+
 
             <div class="hr"></div>
         </div>
+        <button @click="addObj()" class="btn btn-primary">add new object </button>
+
     </div>
 </template>
 
@@ -39,13 +42,13 @@ import formControl from '../generalComponents/formControl.vue'
 import textArea from '../generalComponents/textArea.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     props: ['title'],
     data: () => {
         return {
-            targetElem: 'work'
+            objName: 'work'
         }
     },
     components: {
@@ -57,15 +60,24 @@ export default {
         editTitle() {
           this.$store.commit('showTitleInput')
         },
-        addWork() {
-            this.$store.commit('addObj', 'work')
+        ...mapActions(['fetchObject']),
+        deleteObj(id) {
+            this.$store.dispatch('deleteObj', [id, this.objName])
+        },
+        addObj() {
+            this.$store.dispatch('addObj', this.objName)
         }
     },
     computed: {
       ...mapState({
         titleWindow: 'titleWindow',
-        work: state => state.work
       }),
+      obj() {
+          return this.$store.state[this.objName]
+      }
+    },
+    created() {
+      this.fetchObject(this.objName);
     }
 }
 </script>

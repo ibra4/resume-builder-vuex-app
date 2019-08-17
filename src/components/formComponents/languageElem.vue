@@ -1,19 +1,20 @@
 <template>
     <div class="carousel-item">
         
-        <titleForm :title="title" :target="'languages'" />
+        <titleForm :title="title" :target="objName" />
 
-        <div v-for="(lang, index) in languages" :key="index">
+        <div v-for="lang in obj" :key="lang.id">
             <div class="row">
                 <div class="col-md-6">
-                    <form-control :targetElem="'languages|lang|' + index" :name="'language'" />
+                    <form-control :targetElem="objName + '|lang|' + lang.id" :name="'language'" />
                 </div>
                 <div class="col-md-6">
-                    <form-control :targetElem="'languages|level|' + index" :name="'level'" />
+                    <form-control :targetElem="objName + '|level|' + lang.id" :name="'level'" />
                 </div>
             </div>
+            <button v-if="obj.length > 1" @click="deleteObj(lang.id)" class="btn btn-danger" style="float: right">delete {{lang.id}} </button>
         </div>
-        <button @click="addLanguage" class="btn btn-primary" style="float: right; margin-right:50px;">Add This Language</button>
+        <button @click="addObj()" class="btn btn-primary">add new object </button>
 
     </div>
 </template>
@@ -23,14 +24,13 @@
 import formControl from '../generalComponents/formControl.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     props: ['title'],
     data: () => {
         return {
-            formControl,
-            targetElem: 'languages'
+            objName: 'languages'
         }
     },
     components: {
@@ -41,15 +41,24 @@ export default {
         editTitle() {
           this.$store.commit('showTitleInput')
         },
-        addLanguage() {
-            this.$store.commit('addObj', 'languages')
+        ...mapActions(['fetchObject']),
+        deleteObj(id) {
+            this.$store.dispatch('deleteObj', [id, this.objName])
+        },
+        addObj() {
+            this.$store.dispatch('addObj', this.objName)
         }
     },
     computed: {
       ...mapState({
         titleWindow: 'titleWindow',
-        languages: state => state.languages
       }),
+      obj() {
+          return this.$store.state[this.objName]
+      }
+    },
+    created() {
+      this.fetchObject(this.objName);
     }
 }
 </script>

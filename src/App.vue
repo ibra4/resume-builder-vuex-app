@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    
+    <!-- <test-item /> -->
     <div class="cvinput">
       
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
+
 
           <personal-elem :title="titles.personal"/>
 
@@ -53,7 +54,7 @@ export default {
   name: 'app',
   data: function() {
     return {
-
+      snackbar: false
     }
   },
   components: {
@@ -63,7 +64,7 @@ export default {
     workElem,
     languageElem,
     skillsElem,
-    cvComponent
+    cvComponent,
   },
   computed: {
     ...mapState({

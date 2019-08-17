@@ -1,37 +1,39 @@
 <template>
-    <div class="carousel-item">
-        
+    <div class="carousel-item active">
+
         <titleForm :title="title" :target="'education'" />
         
-        <button @click="addEdu" class="btn btn-primary" style="float: right; margin-right:50px;">Add Education</button>
-        <div v-for="(edu, index) in education" :key="index">
+        <div v-for="edu in obj" :key="edu.id">
             <div class="row">
                 <div class="col-md-6">
-                    <form-control :val="'dsaasd'" :targetElem="'education|name|' + index" :name="'major'"/>
+                    <form-control :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'"/>
                 </div>
                 <div class="col-md-6">
-                    <form-control :targetElem="'education|school|' + index" :name="'school name'"/>
+                    <form-control :targetElem="objName + '|' + 'school' + '|' + edu.id" :name="'school name'"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <form-control :targetElem="'education|start|' + index" :name="'from'"/>
+                    <form-control :targetElem="objName + '|' + 'start' + '|' + edu.id" :name="'from'"/>
                 </div>
                 <div class="col-md-4">
-                    <form-control :targetElem="'education|end|' + index" :name="'to'"/>
+                    <form-control :targetElem="objName + '|' + 'end' + '|' + edu.id" :name="'to'"/>
                 </div>
                 <div class="col-md-4">
-                    <form-control :targetElem="'education|grade|' + index" :name="'grade'"/>
+                    <form-control :targetElem="objName + '|' + 'grade' + '|' + edu.id" :name="'grade'"/>
                 </div>
             </div>
             <div class="row">ss
                 <div class="col-md-12">
-                    <text-area :targetElem="'education|disc|' + index" :label="'discripiton'"/>
+                    <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'"/>
                 </div>
             </div>
-            <!-- <div class="hr"></div> -->
+            <button v-if="obj.length > 1" @click="deleteObj(edu.id)" class="btn btn-danger" style="float: right">delete {{edu.id}} </button>
+
         </div>
-        <titleEditor v-if="titleWindow" :title="this.title" :targetElem="targetElem"/>
+        <button @click="addObj()" class="btn btn-primary">add new object </button>
+
+        <titleEditor v-if="titleWindow" :title="this.title" :targetElem="objName"/>
     </div>
 </template>
 
@@ -40,13 +42,13 @@
 import formControl from '../generalComponents/formControl.vue'
 import textArea from '../generalComponents/textArea.vue'
 import titleForm from '../generalComponents/titleForm.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     props: ['title'],
     data: () => {
         return {
-            targetElem: 'education'
+            objName: 'education'
         }
     },
     components: {
@@ -58,15 +60,24 @@ export default {
         editTitle() {
           this.$store.commit('showTitleInput')
         },
-        addEdu() {
-            this.$store.commit('addObj', 'education')
+        ...mapActions(['fetchObject']),
+        deleteObj(id) {
+            this.$store.dispatch('deleteObj', [id, this.objName])
+        },
+        addObj() {
+            this.$store.dispatch('addObj', this.objName)
         }
     },
     computed: {
       ...mapState({
         titleWindow: 'titleWindow',
-        education: state => state.education
       }),
+      obj() {
+          return this.$store.state[this.objName]
+      }
+    },
+    created() {
+      this.fetchObject(this.objName);
     }
 }
 </script>
