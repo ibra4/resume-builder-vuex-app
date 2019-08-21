@@ -1,7 +1,7 @@
 <template>
     <div class="carousel-item active">
 
-        <titleForm :title="title" :target="'education'" />
+        <titleForm :title="title" :target="'education'" />test karen
         
         <div v-for="edu in obj" :key="edu.id">
             <div class="row">
