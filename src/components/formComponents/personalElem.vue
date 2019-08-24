@@ -4,37 +4,33 @@
       
       <titleForm :title="title" :target="'personal'" />
 
-
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <form-control :targetElem="'personal.firstName'" :name="'first name'"/>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <form-control :targetElem="'personal.lastName'" :name="'last name'"/>
-        </div>
-        <div class="col-md-6">
-          <form-control :targetElem="'personal.email'" :name="'E-mail'"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <form-control :targetElem="'personal.phone'" :name="'phone number'"/>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <form-control :targetElem="'personal.birthday'" :name="'date of birth'"/>
-        </div>
-        <div class="col-md-6">
-          <form-control :targetElem="'personal.address'" :name="'address'"/>
-        </div>
-        <div class="col-md-6">
-          <form-control :targetElem="'personal.summary'" :name="'summary'"/>
-        </div>
-      </div>
-        <div class="form-group">
-          <label for="exampleFormControlFile1">Select a picture</label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
+      <v-content>
+        <v-row>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.firstName'" :name="'first name'"/>
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.lastName'" :name="'last name'"/>
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.email'" :name="'E-mail'"/>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.phone'" :name="'phone number'"/>
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.birthday'" :name="'date of birth'"/>
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.address'" :name="'address'"/>
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <text-field :targetElem="'personal.summary'" :name="'summary'"/>
+          </v-col>
+        </v-row>
+      </v-content>
     </div>
 </template>
 
@@ -42,7 +38,7 @@
 
 <script>
 
-import formControl from '../generalComponents/formControl.vue'
+import textField from '../generalComponents/textField.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
 
@@ -59,7 +55,7 @@ export default {
         }
     },
     components: {
-        formControl,
+        textField,
         titleForm
     },
     methods: {

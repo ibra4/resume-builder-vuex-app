@@ -3,17 +3,17 @@
         <titleForm :title="title" :target="objName" />
         <div class="row">
             <div v-for="sk in obj" :key="sk.id" class="col-md-6">
-                <form-control :targetElem="objName + '|skill|' + sk.id" :name="'skill ' + (sk.id + 1)"/>
+                <text-field :targetElem="objName + '|skill|' + sk.id" :name="'skill ' + (sk.id + 1)"/>
                 <button v-if="obj.length > 1" @click="deleteObj(sk.id)" class="btn btn-danger" style="float: right">delete {{sk.id}} </button>
             </div>
         </div>
-        <button @click="addObj()" class="btn btn-primary">add new object </button>
+        <button v-if="obj[Object.keys(obj).length-1].skill != ''" @click="addObj()" class="btn btn-primary">add new object </button>
     </div>
 </template>
 
 <script>
 
-import formControl from '../generalComponents/formControl.vue'
+import textField from '../generalComponents/textField.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
 import { mapState, mapActions } from 'vuex'
@@ -26,7 +26,7 @@ export default {
         }
     },
     components: {
-        formControl,
+        textField,
         titleForm
     },
     methods : {

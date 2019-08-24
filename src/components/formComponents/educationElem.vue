@@ -4,34 +4,39 @@
         <titleForm :title="title" :target="'education'" />
         
         <div v-for="edu in obj" :key="edu.id">
-            <div class="row">
-                <div class="col-md-6">
-                    <form-control :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'"/>
-                </div>
-                <div class="col-md-6">
-                    <form-control :targetElem="objName + '|' + 'school' + '|' + edu.id" :name="'school name'"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <form-control :targetElem="objName + '|' + 'start' + '|' + edu.id" :name="'from'"/>
-                </div>
-                <div class="col-md-4">
-                    <form-control :targetElem="objName + '|' + 'end' + '|' + edu.id" :name="'to'"/>
-                </div>
-                <div class="col-md-4">
-                    <form-control :targetElem="objName + '|' + 'grade' + '|' + edu.id" :name="'grade'"/>
-                </div>
-            </div>
-            <div class="row">ss
-                <div class="col-md-12">
-                    <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'"/>
-                </div>
-            </div>
-            <button v-if="obj.length > 1" @click="deleteObj(edu.id)" class="btn btn-danger" style="float: right">delete {{edu.id}} </button>
+            <v-content>
+                <v-row>
+                    <v-col cols="12" md="6">
+                        <text-field :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'"/>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                        <text-field :targetElem="objName + '|' + 'school' + '|' + edu.id" :name="'school name'"/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" md="6" lg="4">
+                        <text-field :targetElem="objName + '|' + 'start' + '|' + edu.id" :name="'from'"/>
+                    </v-col>
+                    <v-col cols="12" md="6" lg="4">
+                        <text-field :targetElem="objName + '|' + 'end' + '|' + edu.id" :name="'to'"/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" md="4">
+                        <text-field :targetElem="objName + '|' + 'grade' + '|' + edu.id" :name="'degree'"/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'"/>
+                    </v-col>
+                </v-row>
+            </v-content>
+            <v-btn color="error" v-if="obj.length > 1" @click="deleteObj(edu.id)" class="btn btn-danger">delete {{edu.id}} </v-btn>
+            <v-divider></v-divider>
 
         </div>
-        <button @click="addObj()" class="btn btn-primary">add new object </button>
+        <v-btn color="success" @click="addObj()" class="btn btn-primary">add new object </v-btn>
 
         <titleEditor v-if="titleWindow" :title="this.title" :targetElem="objName"/>
     </div>
@@ -39,7 +44,7 @@
 
 <script>
 
-import formControl from '../generalComponents/formControl.vue'
+import textField from '../generalComponents/textField.vue'
 import textArea from '../generalComponents/textArea.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 import { mapState, mapActions } from 'vuex'
@@ -52,7 +57,7 @@ export default {
         }
     },
     components: {
-        formControl,
+        textField,
         textArea,
         titleForm
     },

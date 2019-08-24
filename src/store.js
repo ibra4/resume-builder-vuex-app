@@ -6,8 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         
-        summary: '',
-        jobTitle: '',
+        summary: 'Experienced full stack web developer with 3+ years of experience in designing and developing dynamic web application / software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products',
+        jobTitle: 'Full stack web developer',
         titleWindow: false,
 
         titles: {
@@ -16,7 +16,7 @@ export default new Vuex.Store({
             education: 'education',
             work: 'work & experience',
             skills: 'skills',
-            languages: 'languages',
+            language: 'languages',
             // certificates: 'certificates',
             // training: 'training',
             // links: 'links'
@@ -27,8 +27,7 @@ export default new Vuex.Store({
             email: 'ibra16@itc.edu.jo',
             phone: '+962 78 0636 170',
             birthday: '14 Jul. 1995',
-            address: 'Marka, Amman',
-            summary: 'Experienced full stack web developer with 3+ years of experience in designing and developing dynamic web application / software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products'
+            address: 'Marka, Amman'
         },
         education: [{
             id: 0,

@@ -1,8 +1,8 @@
 <template>
     <div id="floatingInput">
         <label>Set new Title for `{{ title }}`</label>
-        <input type="text" class="form-control" v-model="updatedTitle"/>
-        <!-- <form-control :targetElem="'titles.personal'" :name="'set new name title of `' + title + ' `'"  /> -->
+        <input type="text" class="text-field" v-model="updatedTitle"/>
+        <!-- <text-field :targetElem="'titles.personal'" :name="'set new name title of `' + title + ' `'"  /> -->
         <button @click="editTitle">save</button>
     </div>
 </template>

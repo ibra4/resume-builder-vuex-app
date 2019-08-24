@@ -4,41 +4,41 @@
         <titleForm :title="title" :target="objName" />
 
         <div v-for="w in obj" :key="w.id">
-            <div class="row">
-                <div class="col-md-6">
-                    <form-control :targetElem="objName + '|' + 'company' + '|' + w.id" :name="'major'"/>
-                </div>
-                <div class="col-md-6">
-                    <form-control :targetElem="objName + '|' + 'major' + '|' + w.id" :name="'major'"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <form-control :targetElem="objName + '|' + 'start' + '|' + w.id" :name="'from'"/>
-                </div>
-                <div class="col-md-4">
-                    <form-control :targetElem="objName + '|' + 'end' + '|' + w.id" :name="'to'"/>
-                </div>
-            </div>
+            <v-row>
+                <v-col cols="12" md="6">
+                    <text-field :targetElem="objName + '|' + 'company' + '|' + w.id" :name="'Company'"/>
+                </v-col>
+                <v-col cols="12" md="6">
+                    <text-field :targetElem="objName + '|' + 'major' + '|' + w.id" :name="'major'"/>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="12" md="6" lg="4">
+                    <text-field :targetElem="objName + '|' + 'start' + '|' + w.id" :name="'from'"/>
+                </v-col>
+                <v-col cols="12" md="6" lg="4">
+                    <text-field :targetElem="objName + '|' + 'end' + '|' + w.id" :name="'to'"/>
+                </v-col>
+            </v-row>
             <!-- <button class="btn btn-primary">add list</button> -->
-            <div class="row">
-                <div class="col-md-12">
+            <v-row>
+                <v-col cols="12" md="6" lg="4">
                     <text-area :targetElem="objName + '|' + 'disc' + '|' + w.id" :label="'discripiton'"/>
-                </div>
-            </div>
-            <button v-if="obj.length > 1" @click="deleteObj(w.id)" class="btn btn-danger" style="float: right">delete {{w.id}} </button>
+                </v-col>
+            </v-row>
+            <v-btn color="error" v-if="obj.length > 1" @click="deleteObj(w.id)" class="btn btn-danger">delete {{w.id}} </v-btn>
 
 
-            <div class="hr"></div>
+            <v-divider></v-divider>
         </div>
-        <button @click="addObj()" class="btn btn-primary">add new object </button>
+        <v-btn color="success" @click="addObj()" class="btn btn-primary">add new object </v-btn>
 
     </div>
 </template>
 
 <script>
 
-import formControl from '../generalComponents/formControl.vue'
+import textField from '../generalComponents/textField.vue'
 import textArea from '../generalComponents/textArea.vue'
 import titleForm from '../generalComponents/titleForm.vue'
 
@@ -52,7 +52,7 @@ export default {
         }
     },
     components: {
-        formControl,
+        textField,
         textArea,
         titleForm
     },

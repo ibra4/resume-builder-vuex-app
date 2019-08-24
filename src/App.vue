@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <div style="margin: 100px auto; width: 70%">
+  <v-container>
     <!-- stepper start -->
     <v-stepper v-model="e1" vertical>
 
@@ -10,7 +10,7 @@
             {{sec}}
           </v-stepper-step>
           
-          <v-stepper-content :key="`${n}-step`" :step="n">
+          <v-stepper-content :key="`${n}-c`" :step="n">
 
           <v-card class="mb-12">
             <keep-alive>
@@ -38,7 +38,7 @@
 
     </v-stepper>
     <!-- stepper end -->
-  </div>
+  </v-container>
   <cvComponent />
 </v-app>  
 </template>

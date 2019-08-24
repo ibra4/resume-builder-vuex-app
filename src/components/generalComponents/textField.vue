@@ -1,10 +1,11 @@
 <template>
-    <v-textarea
-      :label="label"
-      @input="updateVar"
-      v-model="ll"
-      hint="Hint text"
-    ></v-textarea>
+    <div>
+        <!-- <div class="form-group">
+            <label>{{ name }}</label>
+            <input type="text" :value="val" class="text-field" @input="updateVar">
+        </div> -->
+        <v-text-field v-model="ll" @input="updateVar" :label="name" ></v-text-field>
+    </div>
 </template>
 
 <script>
@@ -16,7 +17,7 @@ export default {
         }
     },
     props: {
-        label: String,
+        name: String,
         targetElem: String,
         val: String
     },
