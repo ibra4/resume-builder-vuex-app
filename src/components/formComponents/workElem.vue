@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item">
+    <div>
         
         <titleForm :title="title" :target="objName" />
 

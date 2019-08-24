@@ -17,9 +17,9 @@ export default new Vuex.Store({
             work: 'work & experience',
             skills: 'skills',
             languages: 'languages',
-            certificates: 'certificates',
-            training: 'training',
-            links: 'links'
+            // certificates: 'certificates',
+            // training: 'training',
+            // links: 'links'
         },
         personal: {
             firstName: 'ibrahim',
@@ -28,7 +28,7 @@ export default new Vuex.Store({
             phone: '+962 78 0636 170',
             birthday: '14 Jul. 1995',
             address: 'Marka, Amman',
-            summary: ''
+            summary: 'Experienced full stack web developer with 3+ years of experience in designing and developing dynamic web application / software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products'
         },
         education: [{
             id: 0,

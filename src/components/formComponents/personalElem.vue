@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item">
+    <div>
       <!-- <button @click="expMe">exp</button> -->
       
       <titleForm :title="title" :target="'personal'" />

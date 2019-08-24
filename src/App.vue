@@ -1,37 +1,46 @@
 <template>
-  <div id="app">
-    <!-- <test-item /> -->
-    <div class="cvinput">
-      
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
-        <div class="carousel-inner">
+<v-app>
+  <div style="margin: 100px auto; width: 70%">
+    <!-- stepper start -->
+    <v-stepper v-model="e1" vertical>
 
-
-          <personal-elem :title="titles.personal"/>
-
-          <summary-elem :title="titles.summary"/>
-
-          <education-elem :title="titles.education" />
-
-          <work-elem :title="titles.work" />
-
-          <language-elem :title="titles.languages" />
+        <template v-for="(sec, n) in sections">
           
-          <skills-elem :title="titles.skills" />
+          <v-stepper-step :key="`${n}-step`" :complete="e1 > n" :step="n" editable >
+            {{sec}}
+          </v-stepper-step>
           
-        </div>
+          <v-stepper-content :key="`${n}-step`" :step="n">
 
+          <v-card class="mb-12">
+            <keep-alive>
+              <component :is="getKeyOfValue(sec) + 'Elem'" :title="titles[getKeyOfValue(sec)]"></component>
+            </keep-alive>
+          </v-card>
+
+          <v-btn color="primary" @click="nextStep(n)"> Continue </v-btn>
+          <v-btn text color="error">Cancel</v-btn>
         
-        <a class="nextButton" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="">next</span>
-        </a>
-      </div>
-    
-    </div>
-    <div class="container">
-      <cv-component />
-    </div>
+        </v-stepper-content>
+
+          <v-divider v-if="n !== steps" :key="n"></v-divider>
+        </template>
+
+      <!-- stepper items start-->
+      <v-stepper-items>
+
+        <!-- stepper content -->
+
+        <!-- stepper content -->
+
+      </v-stepper-items>
+      <!-- stepper items end -->
+
+    </v-stepper>
+    <!-- stepper end -->
   </div>
+  <cvComponent />
+</v-app>  
 </template>
 
 <script>
@@ -54,7 +63,8 @@ export default {
   name: 'app',
   data: function() {
     return {
-      snackbar: false
+      e1: 1,
+      steps: 3,
     }
   },
   components: {
@@ -69,7 +79,22 @@ export default {
   computed: {
     ...mapState({
       titles: 'titles',
-    })
+    }),
+    sections() {
+      return Object.values(this.titles);
+    }
+  },
+  methods: {
+    nextStep (n) {
+      if (n === this.steps) {
+        this.e1 = 1
+      } else {
+        this.e1 = n + 1
+      }
+    },
+    getKeyOfValue(name) {
+      return Object.keys(this.titles).find(key => this.titles[key] === name)
+    }
   }
 }
 </script>

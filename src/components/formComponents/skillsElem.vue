@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item">
+    <div>
         <titleForm :title="title" :target="objName" />
         <div class="row">
             <div v-for="sk in obj" :key="sk.id" class="col-md-6">

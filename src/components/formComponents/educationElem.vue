@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item active">
+    <div>
 
         <titleForm :title="title" :target="'education'" />
         

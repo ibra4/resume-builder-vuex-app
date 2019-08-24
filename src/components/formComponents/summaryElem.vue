@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-item">
+    <div>
           <titleForm :title="title" :target="title" />
           <form-control :targetElem="'jobTitle'" :name="'Job Title'"/>
           <text-area :targetElem="'summary'" :label="'short discription'"/>
