@@ -1,5 +1,7 @@
 # resume-live-builder-vuex-app
 
+## [click here](https://ibra4.github.io/resume-builder-vuex-app/) to View the current state of project
+
 ![](https://img.shields.io/badge/vue-3.9.2-green?style=flat)
 ![](https://img.shields.io/badge/Node.js-10.16.0-green?style=flat)
 ![](https://img.shields.io/badge/npm%20package-6.10.1-green?style=flat)
