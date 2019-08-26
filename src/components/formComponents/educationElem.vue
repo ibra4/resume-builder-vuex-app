@@ -1,8 +1,6 @@
 <template>
     <div>
 
-        <titleForm :title="title" :target="'education'" />
-        
         <div v-for="edu in obj" :key="edu.id">
             <v-content>
                 <v-row>
@@ -38,7 +36,6 @@
         </div>
         <v-btn color="success" @click="addObj()" class="btn btn-primary">add new object </v-btn>
 
-        <titleEditor v-if="titleWindow" :title="this.title" :targetElem="objName"/>
     </div>
 </template>
 
@@ -46,11 +43,9 @@
 
 import textField from '../generalComponents/textField.vue'
 import textArea from '../generalComponents/textArea.vue'
-import titleForm from '../generalComponents/titleForm.vue'
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    props: ['title'],
     data: () => {
         return {
             objName: 'education'
@@ -59,12 +54,8 @@ export default {
     components: {
         textField,
         textArea,
-        titleForm
     },
     methods : {
-        editTitle() {
-          this.$store.commit('showTitleInput')
-        },
         ...mapActions(['fetchObject']),
         deleteObj(id) {
             this.$store.dispatch('deleteObj', [id, this.objName])
@@ -74,9 +65,6 @@ export default {
         }
     },
     computed: {
-      ...mapState({
-        titleWindow: 'titleWindow',
-      }),
       obj() {
           return this.$store.state[this.objName]
       }

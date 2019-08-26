@@ -1,8 +1,6 @@
 <template>
     <div>
         
-        <titleForm :title="title" :target="objName" />
-
         <div v-for="lang in obj" :key="lang.id">
             <div class="row">
                 <div class="col-md-6">
@@ -22,12 +20,10 @@
 <script>
 
 import textField from '../generalComponents/textField.vue'
-import titleForm from '../generalComponents/titleForm.vue'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    props: ['title'],
     data: () => {
         return {
             objName: 'languages'
@@ -35,12 +31,8 @@ export default {
     },
     components: {
         textField,
-        titleForm
     },
     methods : {
-        editTitle() {
-          this.$store.commit('showTitleInput')
-        },
         ...mapActions(['fetchObject']),
         deleteObj(id) {
             this.$store.dispatch('deleteObj', [id, this.objName])
@@ -50,9 +42,6 @@ export default {
         }
     },
     computed: {
-      ...mapState({
-        titleWindow: 'titleWindow',
-      }),
       obj() {
           return this.$store.state[this.objName]
       }

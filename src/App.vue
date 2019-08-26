@@ -2,19 +2,31 @@
 <v-app>
   <v-container>
     <!-- stepper start -->
+    <v-dialog v-model="titleWindow" max-width="80%">
+      <v-card class="p-4">
+        <h4>Set new Title for : {{ currentTitle }} </h4>
+        <v-text-field
+            v-model="newTitle"
+          ></v-text-field>
+        <v-btn color="success" @click="saveTitle">save</v-btn>
+      </v-card>
+    </v-dialog>
     <v-stepper v-model="e1" vertical>
 
         <template v-for="(sec, n) in sections">
           
           <v-stepper-step :key="`${n}-step`" :complete="e1 > n" :step="n" editable >
-            {{sec}}
+            <div>
+              {{ sec }}
+              <v-btn text color="success" @click.stop="editTitle(sec)">edit title</v-btn>
+            </div>
           </v-stepper-step>
           
           <v-stepper-content :key="`${n}-c`" :step="n">
 
           <v-card class="mb-12">
             <keep-alive>
-              <component :is="getKeyOfValue(sec) + 'Elem'" :title="titles[getKeyOfValue(sec)]"></component>
+              <component :is="getKeyOfValue(sec) + 'Elem'"></component>
             </keep-alive>
           </v-card>
 
@@ -65,6 +77,10 @@ export default {
     return {
       e1: 1,
       steps: 3,
+      titleWindow: false,
+      currentTitle: '',
+      targetTitle: '',
+      newTitle: ''
     }
   },
   components: {
@@ -94,6 +110,16 @@ export default {
     },
     getKeyOfValue(name) {
       return Object.keys(this.titles).find(key => this.titles[key] === name)
+    },
+    editTitle(title) {
+      this.currentTitle = title
+      this.targetTitle = this.getKeyOfValue(title)
+      this.titleWindow = true;
+    },
+    saveTitle() {
+      this.$store.dispatch('updateVar', ['titles.' + this.targetTitle, this.newTitle])
+      this.newTitle = ''
+      this.titleWindow = false
     }
   }
 }

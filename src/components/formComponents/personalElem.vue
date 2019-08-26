@@ -2,8 +2,6 @@
     <div>
       <!-- <button @click="expMe">exp</button> -->
       
-      <titleForm :title="title" :target="'personal'" />
-
       <v-content>
         <v-row>
           <v-col cols="12" md="6" lg="4">
@@ -39,35 +37,22 @@
 <script>
 
 import textField from '../generalComponents/textField.vue'
-import titleForm from '../generalComponents/titleForm.vue'
 
 
 import { mapState } from 'vuex'
 
 export default {
-    props: [
-        'title'
-    ],
     data: function() {
         return {
             targetElem: 'personal',
-            titleWindow: false
         }
     },
     components: {
         textField,
-        titleForm
     },
     methods: {
-      editTitle: function() {
-        this.titleWindow = true
-        this.$store.commit('showTitleInput')
-      },
       expMe() {
         this.$store.dispatch('expMe')
-      },
-      setWindow(visible) {
-        this.titleWindow = visible
       }
     },
     computed: {

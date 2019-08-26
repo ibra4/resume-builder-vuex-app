@@ -1,8 +1,6 @@
 <template>
     <div>
         
-        <titleForm :title="title" :target="objName" />
-
         <div v-for="w in obj" :key="w.id">
             <v-row>
                 <v-col cols="12" md="6">
@@ -40,12 +38,10 @@
 
 import textField from '../generalComponents/textField.vue'
 import textArea from '../generalComponents/textArea.vue'
-import titleForm from '../generalComponents/titleForm.vue'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    props: ['title'],
     data: () => {
         return {
             objName: 'work'
@@ -54,12 +50,8 @@ export default {
     components: {
         textField,
         textArea,
-        titleForm
     },
     methods : {
-        editTitle() {
-          this.$store.commit('showTitleInput')
-        },
         ...mapActions(['fetchObject']),
         deleteObj(id) {
             this.$store.dispatch('deleteObj', [id, this.objName])
@@ -69,9 +61,6 @@ export default {
         }
     },
     computed: {
-      ...mapState({
-        titleWindow: 'titleWindow',
-      }),
       obj() {
           return this.$store.state[this.objName]
       }

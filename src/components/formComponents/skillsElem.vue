@@ -1,6 +1,5 @@
 <template>
     <div>
-        <titleForm :title="title" :target="objName" />
         <div class="row">
             <div v-for="sk in obj" :key="sk.id" class="col-md-6">
                 <text-field :targetElem="objName + '|skill|' + sk.id" :name="'skill ' + (sk.id + 1)"/>
@@ -14,12 +13,10 @@
 <script>
 
 import textField from '../generalComponents/textField.vue'
-import titleForm from '../generalComponents/titleForm.vue'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    props: ['title'],
     data: () => {
         return {
             objName: 'skills'
@@ -27,12 +24,8 @@ export default {
     },
     components: {
         textField,
-        titleForm
     },
     methods : {
-        editTitle() {
-          this.$store.commit('showTitleInput')
-        },
         ...mapActions(['fetchObject']),
         deleteObj(id) {
             this.$store.dispatch('deleteObj', [id, this.objName])
@@ -42,9 +35,6 @@ export default {
         }
     },
     computed: {
-      ...mapState({
-        titleWindow: 'titleWindow',
-      }),
       obj() {
           return this.$store.state[this.objName]
       }

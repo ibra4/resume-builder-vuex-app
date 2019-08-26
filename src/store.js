@@ -8,7 +8,6 @@ export default new Vuex.Store({
         
         summary: 'Experienced full stack web developer with 3+ years of experience in designing and developing dynamic web application / software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products',
         jobTitle: 'Full stack web developer',
-        titleWindow: false,
 
         titles: {
             personal: 'personal info',
@@ -61,16 +60,6 @@ export default new Vuex.Store({
 
     },
     mutations: {
-        updateTitle(state, [target, val]) {
-            state.titles[target] = val
-        },
-        showTitleInput(state) {
-            state.titleWindow = true
-        },
-        hideTitleInput(state) {
-            state.titleWindow = false;
-        },
-
         SET_OBJ: (state, objName) => (state.objName = objName),
         ADD_OBJ(state, objName) {
             const lastElem = state[objName][state[objName].length - 1]
@@ -123,11 +112,6 @@ export default new Vuex.Store({
                 //Variable
                 state.commit('UPDATE_VAR', [target, val])
             }
-        }
-    },
-    getters: {
-        getTitles: state => {
-            return state.titles
         }
     }
 })
