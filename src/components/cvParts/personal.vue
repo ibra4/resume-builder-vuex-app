@@ -10,7 +10,7 @@
         <p> {{ summary }}</p>
       </div>
     </div>
-    <div class="header-right info">
+    <div class="header-right information">
       <h3 class="title">{{ title }}</h3>
       <div>
         <i class="fas fa-map-marker-alt"></i> <span>{{ personal.address }}</span>

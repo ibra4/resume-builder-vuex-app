@@ -204,23 +204,26 @@ body * {
 }
 .image-container img {width: 100%}
 /************************   info   ************************/
-.info {
+
+.header .information {
     padding: 15px;
+    background-color: #e4e9ed !important;
+
 }
-.info > div {
+.information > div {
     margin-top: 10px;
     margin-left: 10px;
 }
-.info i {
+.information i {
     color: #e4e9ed;
     background-color: #9654d8;
     padding: 5px;
     border-radius: 50%;
 }
-.info span {
+.information span {
     color: #212529;
 }
-.info h3 {margin-left: 5px;}
+.information h3 {margin-left: 5px;}
 /************************   global   ************************/
 .title {
     text-transform: uppercase;
