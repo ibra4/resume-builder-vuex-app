@@ -11,6 +11,7 @@
                     >
                     </v-select>
                     {{category}}
+                    <font-awesome-icon :icon="[ 'fab', 'facebook-square' ]" />
                 </v-col>
             </v-row>
         </v-content>

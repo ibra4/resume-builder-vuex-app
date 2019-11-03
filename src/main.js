@@ -9,7 +9,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/css/style.css'
 import 'vuetify/dist/vuetify.min.css'
 
-// Vue.use(BootstrapVue)
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faJs, faVuejs, faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faCoffee, faJs, faVuejs, faFacebookSquare);
+
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 Vue.use(vuetify)
 
 Vue.config.productionTip = false
