@@ -16,9 +16,7 @@ export default new Vuex.Store({
             work: 'work & experience',
             skills: 'skills',
             language: 'languages',
-            // certificates: 'certificates',
-            // training: 'training',
-            // links: 'links'
+            links: 'links'
         },
         personal: {
             firstName: 'ibrahim',
@@ -50,6 +48,30 @@ export default new Vuex.Store({
         }],
         languages: [
             {id: 0, lang: 'arabic', level: 'fluent'}
+        ],
+        linksList: [
+            {type: 'Instagram', icon: '', username: ''},
+            {type: 'Twitter', icon: '', username: ''},
+            {type: 'Snapchat', icon: '', username: ''},
+            {type: 'YouTube', icon: '', username: ''},
+            {type: 'Whatsapp', icon: '', username: ''},
+            {type: 'LINE', icon: '', username: ''},
+            {type: 'WeChat', icon: '', username: ''},
+            {type: 'Pinterest', icon: '', username: ''},
+            {type: 'Tumblr', icon: '', username: ''},
+            {type: 'Ask.fm', icon: '', username: ''},
+            {type: 'SoundCloud', icon: '', username: ''},
+            {type: 'Spotify', icon: '', username: ''},
+            {type: 'LinkedIn', icon: '', username: ''},
+            {type: 'Skype', icon: '', username: ''},
+            {type: 'QQ', icon: '', username: ''},
+            {type: 'Github', icon: '', username: ''},
+            {type: 'Bitbucket', icon: '', username: ''},
+            {type: 'StackOverflow', icon: '', username: ''},
+            {type: 'JsFiddle', icon: '', username: ''},
+        ],
+        links: [
+            {type: '', username: ''},
         ],
         certificates: {},
         training: {},

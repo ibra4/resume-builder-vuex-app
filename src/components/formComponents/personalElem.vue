@@ -32,8 +32,6 @@
     </div>
 </template>
 
-
-
 <script>
 
 import textField from '../generalComponents/textField.vue'

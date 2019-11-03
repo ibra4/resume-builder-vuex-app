@@ -63,6 +63,7 @@ import educationElem from './components/formComponents/educationElem.vue'
 import workElem from './components/formComponents/workElem.vue'
 import languageElem from './components/formComponents/languageElem.vue'
 import skillsElem from './components/formComponents/skillsElem.vue'
+import linksElem from './components/formComponents/linksElem.vue'
 
 import { mapState } from 'vuex'
 
@@ -90,6 +91,7 @@ export default {
     workElem,
     languageElem,
     skillsElem,
+    linksElem,
     cvComponent,
   },
   computed: {
