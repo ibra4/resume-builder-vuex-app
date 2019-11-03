@@ -10,8 +10,7 @@
                     v-model="category"
                     >
                     </v-select>
-                    {{category}}
-                    <font-awesome-icon :icon="[ 'fab', 'facebook-square' ]" />
+                    <font-awesome-icon v-if="category" :icon="[ 'fab', this.getIcon(category) ]" />
                 </v-col>
             </v-row>
         </v-content>
@@ -20,7 +19,7 @@
 
 <script>
 
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
     data: () => {
@@ -32,6 +31,17 @@ export default {
       ...mapState({
         linksList: state => state.linksList
       }),
+    },
+    methods: {
+        ...mapActions(['fetchObject']),
+        getIcon(category) {
+            if (category && category != '') {
+                return this.$store.state.linksList.find(el => el.type == category).icon
+            }
+        }
+    },
+    created() {
+      this.fetchObject(this.objName);
     }
 }
 </script>
