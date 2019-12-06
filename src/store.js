@@ -69,11 +69,10 @@ export default new Vuex.Store({
             {type: 'JsFiddle', icon: 'jsfiddle', username: ''},
         ],
         links: [
-            {type: '', username: ''},
+            {id: 0, type: 'Instagram', username: ''},
         ],
         certificates: {},
         training: {},
-        links: {},
         newSections: {
 
         }

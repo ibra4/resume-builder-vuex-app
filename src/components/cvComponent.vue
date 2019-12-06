@@ -17,7 +17,9 @@
             <!-- work.vue -->
             <work :title="titles.work" />
 
+            <!-- languages.vue -->
             <languages :title="titles.languages"/>
+
             
             <div class="para projects">
               <div class="title">
@@ -73,34 +75,10 @@
                 Dealing with web host services <div class="skill"><div class="level good">Good</div></div>
             </div>
           </div>
-          <div class="para links">
-            <div class="title">
-                <span><i class="fa fa-link"></i></span>Links
-            </div>
-            <div class="exp">
-              <a href="https://github.com/ibra4">
-                <div>
-                  <i class="fab fa-github fa-3x"></i>
-                  <p>Github</p>
-                  <p>ibra4</p>
-                </div>
-              </a>
-              <a href="https://jsfiddle.net/ib444/6g53xnb8/">
-                <div>
-                  <i class="fab fa-jsfiddle fa-3x" style="color: #44769f"></i>
-                  <p style="color: #44769f">JSFiddle</p>
-                  <p>ib.444</p>
-                </div>
-              </a>
-              <a href="https://bitbucket.org/joker16/">
-                <div>
-                  <i class="fab fa-bitbucket fa-3x" style="color: #0c61dc"></i>
-                  <p style="color: #0c61dc">Bitbucket</p>
-                  <p>joker16</p>
-                </div>
-              </a>
-            </div>
-          </div>
+          
+        <!-- links.vue -->
+        <links :title="titles.links" />            
+
         </div>
       </div>
 
@@ -117,6 +95,7 @@ import education from './cvParts/education.vue'
 import work from './cvParts/work.vue'
 import languages from './cvParts/languages.vue'
 import skills from './cvParts/skills.vue'
+import links from './cvParts/links.vue'
 
 export default {
     components: {
@@ -124,7 +103,8 @@ export default {
         education,
         work,
         languages,
-        skills
+        skills,
+        links
     },
     computed: mapState([
         'titles'
@@ -403,15 +383,18 @@ a, a:hover {
 .links .exp {
     text-align: center;
 }
-.links a {
+.links .link {
     display: inline-block;
     margin: 10px 25px;
 }
-.links a div p:first-of-type {
+.links .link p:first-of-type {
     border-bottom: #9654d8 1px solid;
 }
-.links a div p:last-of-type {
+.links .link p:last-of-type {
     margin-top: -10px;
+}
+.links svg {
+    font-size: 30px
 }
 /************************   projects   ************************/
 .projects span:not(.proj) {

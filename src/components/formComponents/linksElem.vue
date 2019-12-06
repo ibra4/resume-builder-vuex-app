@@ -1,43 +1,60 @@
 <template>
     <div>
-        <v-content>
-            <v-row>
-                <v-col cols="12" md="6" lg="4">
-                    <v-select 
-                    :items="linksList" 
-                    lebel="select a link"
-                    item-text="type"
-                    v-model="category"
-                    >
-                    </v-select>
-                    <font-awesome-icon v-if="category" :icon="[ 'fab', this.getIcon(category) ]" />
-                </v-col>
-            </v-row>
-        </v-content>
+        <div v-for="link in obj" :key="link.id">
+            <options
+            :items="linksList"
+            :label="'select a link'"
+            :targetElem="objName + '|type|' + link.id"
+            >
+
+            </options>
+            <!-- <span>
+                <font-awesome-icon v-if="category" :icon="[ 'fab', getIcon(category) ]" />
+            </span> -->
+            <span>
+                <!-- <options :targetElem="objName + '|type|' + link.id" :name="'link'" /> -->
+                <text-field :targetElem="objName + '|username|' + link.id" :name="'link'" />
+            </span>
+            <button v-if="obj.length > 1" @click="deleteObj(link.id)" class="btn btn-danger" style="float: right">delete {{link.id}} </button>
+        </div>
+        <button @click="addObj()" class="btn btn-primary">add new object </button>
     </div>
 </template>
 
 <script>
+
+import textField from '../generalComponents/textField.vue'
+import options from '../generalComponents/option'
 
 import {mapState, mapActions} from 'vuex'
 
 export default {
     data: () => {
         return {
-            category: ''
+            category: '',
+            objName: 'links',
+            items: ['facebook', 'twitter', 'linkedin']
         }
+    },
+    components: {
+        textField,
+        options
     },
     computed: {
       ...mapState({
         linksList: state => state.linksList
       }),
+      obj() {
+          return this.$store.state[this.objName]
+      }
     },
     methods: {
         ...mapActions(['fetchObject']),
-        getIcon(category) {
-            if (category && category != '') {
-                return this.$store.state.linksList.find(el => el.type == category).icon
-            }
+        deleteObj(id) {
+            this.$store.dispatch('deleteObj', [id, this.objName])
+        },
+        addObj() {
+            this.$store.dispatch('addObj', this.objName)
         }
     },
     created() {
