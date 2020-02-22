@@ -48,6 +48,7 @@
         <div class="section-right">
           
             <skills :title="titles.skills"/>
+            <BarSkills :title="titles.BarSkills" />
 
           <div class="para pro-lang">
               <div class="title">
@@ -95,6 +96,7 @@ import education from './cvParts/education.vue'
 import work from './cvParts/work.vue'
 import languages from './cvParts/languages.vue'
 import skills from './cvParts/skills.vue'
+import BarSkills from './cvParts/BarSkills.vue'
 import links from './cvParts/links.vue'
 
 export default {
@@ -104,7 +106,8 @@ export default {
         work,
         languages,
         skills,
-        links
+        links,
+        BarSkills
     },
     computed: mapState([
         'titles'
