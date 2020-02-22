@@ -3,7 +3,7 @@
         <v-select 
         :items="items" 
         :lebel="label"
-        item-text="type"
+        :item-text="targetProperty"
         v-model="ll"
         v-on:change="updateVar"
         >
@@ -22,7 +22,8 @@ export default {
     props: {
         label: String,
         targetElem: String,
-        items: Array
+        items: Array,
+        targetProperty: String
     },
     methods: {
         updateVar(e) {

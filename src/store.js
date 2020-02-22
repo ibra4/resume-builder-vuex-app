@@ -57,7 +57,8 @@ export default new Vuex.Store({
     BarSkills: [
       {
         id: 0,
-        skill: ""
+        skill: "",
+        level: "weak"
       }
     ],
     languages: [{ id: 0, lang: "arabic", level: "fluent" }],
@@ -79,6 +80,11 @@ export default new Vuex.Store({
       { type: "Bitbucket", icon: "bitbucket", username: "" },
       { type: "StackOverflow", icon: "stack-overflow", username: "" },
       { type: "JsFiddle", icon: "jsfiddle", username: "" }
+    ],
+    skillsList: [
+      { level: "weak", label: "Weak" },
+      { level: "meduim", label: "Medium" },
+      { level: "professional", label: "Professional" }
     ],
     links: [{ id: 0, type: "Instagram", username: "" }],
     certificates: {},
