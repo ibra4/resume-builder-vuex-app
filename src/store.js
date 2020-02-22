@@ -17,7 +17,8 @@ export default new Vuex.Store({
       skills: "skills",
       BarSkills: "bar skills",
       language: "languages",
-      links: "links"
+      links: "links",
+      blocks: "Blocks"
     },
     personal: {
       firstName: "ibrahim",
@@ -52,6 +53,12 @@ export default new Vuex.Store({
       {
         id: 0,
         skill: ""
+      }
+    ],
+    blocks: [
+      {
+        id: 0,
+        title: ""
       }
     ],
     BarSkills: [
