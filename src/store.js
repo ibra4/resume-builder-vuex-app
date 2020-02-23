@@ -49,10 +49,10 @@ export default new Vuex.Store({
         start: "2004",
         end: "2010",
         disc:
-          "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est"
+          "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil"
       },
       {
-        id: 0,
+        id: 1,
         company: "Bonorum et Malorum",
         major: "predefined chunks",
         start: "2016",
@@ -99,8 +99,8 @@ export default new Vuex.Store({
     ],
     Languages: [
       { id: 0, lang: "Arabic", level: "fluent" },
-      { id: 0, lang: "English", level: "Excelent" },
-      { id: 0, lang: "German", level: "Good" }
+      { id: 1, lang: "English", level: "Excelent" },
+      { id: 2, lang: "German", level: "Good" }
     ],
     LinksList: [
       { type: "facebook", icon: "facebook-square", username: "" },
@@ -127,8 +127,8 @@ export default new Vuex.Store({
       { level: "professional", label: "Professional" }
     ],
     Links: [
-      { id: 0, type: "Instagram", username: "test_insta65649" },
-      { id: 1, type: "Facebook", username: "test_fb65649" }
+      { id: 0, type: "", username: "test_insta65649" },
+      { id: 1, type: "", username: "test_fb65649" }
     ],
     Certificates: {},
     Training: {},

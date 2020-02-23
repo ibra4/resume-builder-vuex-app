@@ -5,7 +5,7 @@
         <img src="../../assets/pic/user.png" alt />
       </div>
       <div class="summary">
-        <h1 class="title" style="color: #9654d8">{{ fullName }}</h1>
+        <h1 class="title full-name">{{ fullName }}</h1>
         <h2 class="title">- {{ jobTitle }}</h2>
         <p>{{ summary }}</p>
       </div>

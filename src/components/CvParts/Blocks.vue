@@ -6,7 +6,7 @@
       </span>
       {{ title }}
     </div>
-    <ul class="no-style">
+    <ul class="no-style exp">
       <li v-for="(b, index) in blocks" :key="index">{{ b.title }}</li>
     </ul>
   </div>

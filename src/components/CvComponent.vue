@@ -20,13 +20,11 @@
 
           <!-- Projects.vue -->
           <Projects :title="titles.Projects" />
-
         </div>
         <div class="section-right">
-          
           <!-- skills.vue -->
           <Skills :title="titles.Skills" />
-          
+
           <!-- BarSkills.vue -->
           <BarSkills :title="titles.BarSkills" />
 
@@ -53,8 +51,8 @@ import Languages from "./CvParts/Languages";
 import Skills from "./CvParts/Skills";
 import BarSkills from "./CvParts/BarSkills";
 import Links from "./CvParts/Links";
-import Blocks from './CvParts/Blocks'
-import Projects from './CvParts/Projects'
+import Blocks from "./CvParts/Blocks";
+import Projects from "./CvParts/Projects";
 
 export default {
   components: {
@@ -122,6 +120,7 @@ body * {
 }
 .header .header-left {
   width: 65%;
+  display: flex
 }
 .header .header-right {
   width: 35%;
@@ -135,10 +134,13 @@ body * {
 .summary {
   width: 60%;
 }
+.summary .full-name {
+  color: #9654d8;
+  font-size: 28px !important;
+}
 .image-container,
 .summary {
   display: inline-block;
-  float: left;
   overflow: hidden;
 }
 .summary {
@@ -150,12 +152,11 @@ body * {
 /************************   info   ************************/
 
 .header .information {
-  padding: 15px;
+  padding: 10px;
   background-color: #e4e9ed !important;
 }
 .information > div {
   margin-top: 10px;
-  margin-left: 10px;
 }
 .information i {
   color: #e4e9ed;
@@ -165,6 +166,7 @@ body * {
 }
 .information span {
   color: #212529;
+  margin-left: 5px;
 }
 .information h3 {
   margin-left: 5px;
@@ -278,7 +280,7 @@ a:hover {
   margin-top: 10px;
 }
 .para .work-list li {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 /************************   skills   ************************/
 .skills ul .main {
@@ -288,17 +290,17 @@ a:hover {
   text-transform: capitalize;
 }
 .skills ul li:not(.main) {
-  margin-left: 35px;
   margin-top: 5px;
   position: relative;
   padding-left: 20px;
   font-size: 12px;
   text-transform: initial;
+  display: flex;
+  align-items: center;
 }
 .skills ul li:not(.main)::before {
   content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
   height: 5px;
   width: 10px;
@@ -313,7 +315,7 @@ a:hover {
   padding: 4px 8px;
   border-radius: 5px;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 /************************   sw-skills   ************************/
 .sw-skills .title {
@@ -330,6 +332,7 @@ a:hover {
   position: relative;
   text-align: center;
   color: #9654d8;
+  overflow: hidden;
 }
 .sw-skills .skill .level {
   position: absolute;
@@ -339,13 +342,18 @@ a:hover {
   background-color: #e4e9ed;
   line-height: 15px;
   vertical-align: middle;
+  text-align: center;
 }
 .professional {
   width: 95%;
-  background-color: #8ddc5d !important;
+  background-color: #34f61d !important;
 }
-.good {
+.medium {
   width: 70%;
+  background-color: #ace681 !important;
+}
+.weak {
+  width: 50%;
   background-color: #cddc5d !important;
 }
 /************************   lang   ************************/
@@ -368,22 +376,5 @@ a:hover {
 }
 .links svg {
   font-size: 30px;
-}
-/************************   projects   ************************/
-.projects span:not(.proj) {
-  float: right;
-}
-.projects .status {
-  color: #22bb33;
-  font-weight: bold;
-}
-.projects .exp div:last-of-type {
-  margin-top: 10px;
-  margin-left: 10px;
-  color: #9654d8;
-  font-weight: bold;
-}
-.logout {
-  float: right;
 }
 </style>

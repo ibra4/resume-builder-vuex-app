@@ -7,11 +7,9 @@
       {{ title }}
     </div>
     <div class="exp">
-      <div v-for="pro in projects" :key="pro.id">
-        <span>
-          <b>{{pro.title}}</b>
-        </span>
-        <span>{{pro.description}}</span>
+      <div v-for="(pro, index) in projects" :key="pro.id">
+        <b>{{index +1}}- {{pro.title}}</b>
+        <div>{{pro.description}}</div>
       </div>
     </div>
   </div>
