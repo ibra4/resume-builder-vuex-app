@@ -8,9 +8,9 @@
     </div>
     <div class="exp">
       <div v-for="(link, index) in links" :key="index" class="link">
-          <font-awesome-icon v-if="link.type != ''" :icon="[ 'fab', getIcon(link.type) ]" />
-          <p>{{ link.type }}</p>
-          <p>{{ link.username }}</p>
+        <font-awesome-icon v-if="link.type != ''" :icon="[ 'fab', getIcon(link.type) ]" />
+        <p>{{ link.type }}</p>
+        <p>{{ link.username }}</p>
       </div>
     </div>
   </div>
@@ -23,15 +23,15 @@ export default {
   props: ["title"],
   computed: {
     ...mapState({
-      links: "links"
-    }),
+      links: "Links"
+    })
   },
   methods: {
     getIcon(category) {
-        if (category && category != '') {
-            return this.$store.state.linksList.find(el => el.type == category).icon
-        }
-    },
+      if (category && category != "") {
+        return this.$store.state.LinksList.find(el => el.type == category).icon;
+      }
+    }
   }
 };
 </script>

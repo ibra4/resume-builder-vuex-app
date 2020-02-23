@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-for="link in obj" :key="link.id">
-      <options
+      <Select
         :items="linksList"
         :label="'select a link'"
         :targetElem="objName + '|type|' + link.id"
         :targetProperty="'type'"
-      ></options>
+      />
       <span>
         <text-field :targetElem="objName + '|username|' + link.id" :name="'link'" />
       </span>
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import textField from "../generalComponents/textField.vue";
-import options from "../generalComponents/option.vue";
+import textField from "../Inputs/TextField.vue";
+import Select from "../Inputs/Select.vue";
 
 import { mapState, mapActions } from "vuex";
 
@@ -31,17 +31,17 @@ export default {
   data: () => {
     return {
       category: "",
-      objName: "links",
+      objName: "Links",
       items: ["facebook", "twitter", "linkedin"]
     };
   },
   components: {
     textField,
-    options
+    Select
   },
   computed: {
     ...mapState({
-      linksList: state => state.linksList
+      linksList: state => state.LinksList
     }),
     obj() {
       return this.$store.state[this.objName];

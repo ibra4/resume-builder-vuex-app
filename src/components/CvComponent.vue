@@ -4,70 +4,37 @@
       <div class="top-line"></div>
 
       <!-- personal.vue -->
-      <personal :title="titles.personal" />
+      <Personal :title="titles.Personal" />
 
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
           <!-- education.vue -->
-          <education :title="titles.education" />
+          <Education :title="titles.Education" />
 
           <!-- work.vue -->
-          <work :title="titles.work" />
+          <Work :title="titles.Work" />
 
           <!-- languages.vue -->
-          <languages :title="titles.languages" />
+          <Languages :title="titles.Languages" />
 
-          <Projects :title="titles.projects" />
-          <!-- <div class="para projects">
-            <div class="title">
-              <span>
-                <i class="fas fa-tasks"></i>
-              </span>projects
-            </div>
-            <div class="exp">
-              <span class="proj">
-                <b>1 - CV Creator Vue.js Application</b>
-              </span>
-              <span>
-                <span class="status">
-                  Status :
-                  <p>underway</p>
-                </span>
-              </span>
-              <a href="https://github.com/ibra4/CV-creator-Vue-Application">
-                <div>Go to project</div>
-              </a>
-            </div>
-            <div class="exp">
-              <span class="proj">
-                <b>2 - File Validation Ruah MVC Framework</b>
-              </span>
-              <span>
-                <span class="status">
-                  Status :
-                  <p>underway</p>
-                </span>
-              </span>
-              <a href="https://github.com/ibra4/ruah-php-mvc-framework">
-                <div>Go to project</div>
-              </a>
-            </div>
-          </div> -->
+          <!-- Projects.vue -->
+          <Projects :title="titles.Projects" />
+
         </div>
         <div class="section-right">
           
           <!-- skills.vue -->
-          <skills :title="titles.skills" />
+          <Skills :title="titles.Skills" />
           
           <!-- BarSkills.vue -->
           <BarSkills :title="titles.BarSkills" />
 
           <!-- Blocks.vue -->
-          <Blocks :title="titles.blocks" />
+          <Blocks :title="titles.Blocks" />
 
           <!-- links.vue -->
-          <links :title="titles.links" />
+          <Links :title="titles.Links" />
         </div>
       </div>
 
@@ -79,24 +46,24 @@
 <script>
 import { mapState } from "vuex";
 
-import personal from "./cvParts/personal.vue";
-import education from "./cvParts/education.vue";
-import work from "./cvParts/work.vue";
-import languages from "./cvParts/languages.vue";
-import skills from "./cvParts/skills.vue";
-import BarSkills from "./cvParts/BarSkills.vue";
-import links from "./cvParts/links.vue";
-import Blocks from './cvParts/Blocks'
-import Projects from './cvParts/Projects.vue'
+import Personal from "./CvParts/Personal";
+import Education from "./CvParts/Education";
+import Work from "./CvParts/Work";
+import Languages from "./CvParts/Languages";
+import Skills from "./CvParts/Skills";
+import BarSkills from "./CvParts/BarSkills";
+import Links from "./CvParts/Links";
+import Blocks from './CvParts/Blocks'
+import Projects from './CvParts/Projects'
 
 export default {
   components: {
-    personal,
-    education,
-    work,
-    languages,
-    skills,
-    links,
+    Personal,
+    Education,
+    Work,
+    Languages,
+    Skills,
+    Links,
     BarSkills,
     Blocks,
     Projects

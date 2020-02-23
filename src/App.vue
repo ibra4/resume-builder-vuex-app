@@ -1,140 +1,125 @@
 <template>
-<v-app>
-  <v-container>
-    <!-- stepper start -->
-    <v-dialog v-model="titleWindow" max-width="80%">
-      <v-card class="p-4">
-        <h4>Set new Title for : {{ currentTitle }} </h4>
-        <v-text-field
-            v-model="newTitle"
-          ></v-text-field>
-        <v-btn color="success" @click="saveTitle">save</v-btn>
-      </v-card>
-    </v-dialog>
-    <v-stepper v-model="e1" vertical>
-
+  <v-app>
+    <v-container>
+      <!-- stepper start -->
+      <v-dialog v-model="titleWindow" max-width="80%">
+        <v-card class="p-4">
+          <h4>Set new Title for : {{ currentTitle }}</h4>
+          <v-text-field v-model="newTitle"></v-text-field>
+          <v-btn color="success" @click="saveTitle">save</v-btn>
+        </v-card>
+      </v-dialog>
+      <v-stepper v-model="e1" vertical>
         <template v-for="(sec, n) in sections">
-          
-          <v-stepper-step :key="`${n}-step`" :complete="e1 > n" :step="n" editable >
+          <v-stepper-step :key="`${n}-step`" :complete="e1 > n" :step="n" editable>
             <div>
               {{ sec }}
               <v-btn text color="success" @click.stop="editTitle(sec)">edit title</v-btn>
             </div>
           </v-stepper-step>
-          
+
           <v-stepper-content :key="`${n}-c`" :step="n">
+            <v-card class="mb-12">
+              <keep-alive>
+                <component :is="getKeyOfValue(sec) + 'Elem'"></component>
+              </keep-alive>
+            </v-card>
 
-          <v-card class="mb-12">
-            <keep-alive>
-              <component :is="getKeyOfValue(sec) + 'Elem'"></component>
-            </keep-alive>
-          </v-card>
-
-          <v-btn color="primary" @click="nextStep(n)"> Continue </v-btn>
-          <v-btn text color="error">Cancel</v-btn>
-        
-        </v-stepper-content>
+            <v-btn color="primary" @click="nextStep(n)">Continue</v-btn>
+          </v-stepper-content>
 
           <v-divider v-if="n !== steps" :key="n"></v-divider>
         </template>
 
-      <!-- stepper items start-->
-      <v-stepper-items>
+        <!-- stepper items start-->
+        <v-stepper-items>
+          <!-- stepper content -->
 
-        <!-- stepper content -->
-
-        <!-- stepper content -->
-
-      </v-stepper-items>
-      <!-- stepper items end -->
-
-    </v-stepper>
-    <!-- stepper end -->
-  </v-container>
-  <cvComponent />
-</v-app>  
+          <!-- stepper content -->
+        </v-stepper-items>
+        <!-- stepper items end -->
+      </v-stepper>
+      <!-- stepper end -->
+    </v-container>
+    <CvComponent />
+  </v-app>
 </template>
 
 <script>
+import PersonalElem from "./components/FormComponents/PersonalElem";
+import SummaryElem from "./components/FormComponents/SummaryElem";
+import EducationElem from "./components/FormComponents/EducationElem";
+import WorkElem from "./components/FormComponents/WorkElem";
+import LanguageElem from "./components/FormComponents/LanguageElem";
+import SkillsElem from "./components/FormComponents/SkillsElem";
+import BarSkillsElem from "./components/FormComponents/BarSkillsElem";
+import LinksElem from "./components/FormComponents/LinksElem";
+import BlocksElem from "./components/FormComponents/BlocksElem";
+import ProjectsElem from "./components/FormComponents/ProjectsElem";
 
-import personalElem from './components/formComponents/personalElem.vue'
-import summaryElem from './components/formComponents/summaryElem.vue'
-import educationElem from './components/formComponents/educationElem.vue'
-import workElem from './components/formComponents/workElem.vue'
-import languageElem from './components/formComponents/languageElem.vue'
-import skillsElem from './components/formComponents/skillsElem.vue'
-import BarSkillsElem from './components/formComponents/BarSkillsElem'
-import linksElem from './components/formComponents/linksElem.vue'
-import BlocksElem from './components/formComponents/BlocksElem.vue'
-import ProjectsElem from './components/formComponents/ProjectsElem.vue'
+import { mapState } from "vuex";
 
-import { mapState } from 'vuex'
+import "./assets/css/all.min.css";
 
-import './assets/css/all.min.css'
-
-import cvComponent from './components/cvComponent.vue'
-
+import CvComponent from "./components/CvComponent";
 
 export default {
-  name: 'app',
+  name: "app",
   data: function() {
     return {
-      e1: 1,
+      e1: 0,
       steps: 3,
       titleWindow: false,
-      currentTitle: '',
-      targetTitle: '',
-      newTitle: ''
-    }
+      currentTitle: "",
+      targetTitle: "",
+      newTitle: ""
+    };
   },
   components: {
-    personalElem,
-    summaryElem,
-    educationElem,
-    workElem,
-    languageElem,
-    skillsElem,
-    linksElem,
+    PersonalElem,
+    SummaryElem,
+    EducationElem,
+    WorkElem,
+    LanguageElem,
+    SkillsElem,
+    LinksElem,
     BarSkillsElem,
-    cvComponent,
     BlocksElem,
-    ProjectsElem
+    ProjectsElem,
+    CvComponent
   },
   computed: {
     ...mapState({
-      titles: 'titles',
+      titles: "titles"
     }),
     sections() {
       return Object.values(this.titles);
     }
   },
   methods: {
-    nextStep (n) {
+    nextStep(n) {
       if (n === this.steps) {
-        this.e1 = 1
+        this.e1 = 1;
       } else {
-        this.e1 = n + 1
+        this.e1 = n + 1;
       }
     },
     getKeyOfValue(name) {
-      return Object.keys(this.titles).find(key => this.titles[key] === name)
+      return Object.keys(this.titles).find(key => this.titles[key] === name);
     },
     editTitle(title) {
-      this.currentTitle = title
-      this.targetTitle = this.getKeyOfValue(title)
+      this.currentTitle = title;
+      this.targetTitle = this.getKeyOfValue(title);
       this.titleWindow = true;
     },
     saveTitle() {
-      this.$store.dispatch('updateVar', ['titles.' + this.targetTitle, this.newTitle])
-      this.newTitle = ''
-      this.titleWindow = false
+      this.$store.dispatch("updateVar", [
+        "titles." + this.targetTitle,
+        this.newTitle
+      ]);
+      this.newTitle = "";
+      this.titleWindow = false;
     }
   }
-}
+};
 </script>
-
-<style>
-.carousel-inner .carousel-item {
-  min-height: 300px;
-}
-</style>

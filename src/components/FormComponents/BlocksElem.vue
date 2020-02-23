@@ -1,27 +1,18 @@
 <template>
   <div>
     <div class="row">
-      <div v-for="sk in obj" :key="sk.id" class="col-md-6">
-        <options
-          :items="skillsList"
-          :label="'select a level'"
-          :targetElem="objName + '|level|' + sk.id"
-          :targetProperty="'label'"
-        ></options>
-        <text-field
-          :targetElem="objName + '|skill|' + sk.id"
-          :name="'skill with bar' + (sk.id + 1)"
-        />
+      <div v-for="block in obj" :key="block.id" class="col-md-6">
+        <text-field :targetElem="objName + '|title|' + block.id" :name="'Block ' + (block.id + 1)" />
         <button
           v-if="obj.length > 1"
-          @click="deleteObj(sk.id)"
+          @click="deleteObj(block.id)"
           class="btn btn-danger"
           style="float: right"
-        >delete {{sk.id}}</button>
+        >delete {{block.id}}</button>
       </div>
     </div>
     <button
-      v-if="obj[Object.keys(obj).length-1].skill != ''"
+      v-if="obj[Object.keys(obj).length-1].title != ''"
       @click="addObj()"
       class="btn btn-primary"
     >add new object</button>
@@ -29,20 +20,18 @@
 </template>
 
 <script>
-import textField from "../generalComponents/textField.vue";
-import options from "../generalComponents/option.vue";
+import textField from "../Inputs/TextField.vue";
 
 import { mapState, mapActions } from "vuex";
 
 export default {
   data: () => {
     return {
-      objName: "BarSkills"
+      objName: "Blocks"
     };
   },
   components: {
-    textField,
-    options
+    textField
   },
   methods: {
     ...mapActions(["fetchObject"]),
@@ -54,9 +43,6 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      skillsList: state => state.skillsList
-    }),
     obj() {
       return this.$store.state[this.objName];
     }
@@ -66,5 +52,3 @@ export default {
   }
 };
 </script>
-<style>
-</style>

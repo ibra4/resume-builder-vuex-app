@@ -6,7 +6,7 @@
           :targetElem="objName + '|title|' + project.id"
           :name="'project ' + (project.id + 1)"
         />
-        <text-field
+        <text-area
           :targetElem="objName + '|description|' + project.id"
           :name="'project ' + (project.id + 1)"
         />
@@ -27,18 +27,20 @@
 </template>
 
 <script>
-import textField from "../generalComponents/textField.vue";
+import textField from "../Inputs/TextField";
+import textArea from "../Inputs/TextArea";
 
 import { mapState, mapActions } from "vuex";
 
 export default {
   data: () => {
     return {
-      objName: "projects"
+      objName: "Projects"
     };
   },
   components: {
-    textField
+    textField,
+    textArea
   },
   methods: {
     ...mapActions(["fetchObject"]),
@@ -59,5 +61,3 @@ export default {
   }
 };
 </script>
-<style>
-</style>

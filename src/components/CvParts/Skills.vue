@@ -1,13 +1,13 @@
 <template>
-  <div class="para pro-lang">
+  <div class="para skills">
     <div class="title">
-      <span>
+      <span class="first-right">
         <i class="fas fa-swimmer"></i>
       </span>
       {{ title }}
     </div>
     <ul class="no-style">
-      <li v-for="(b, index) in blocks" :key="index">{{ b.title }}</li>
+      <li v-for="(sk, index) in skills" :key="index">{{ sk.skill }}</li>
     </ul>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   props: ["title"],
   computed: {
     ...mapState({
-      blocks: "blocks"
+      skills: "Skills"
     })
   }
 };

@@ -24,7 +24,7 @@ export default {
   props: ["title"],
   computed: {
     ...mapState({
-      projects: "projects"
+      projects: "Projects"
     })
   }
 };

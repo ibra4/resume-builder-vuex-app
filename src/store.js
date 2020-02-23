@@ -10,18 +10,18 @@ export default new Vuex.Store({
     jobTitle: "Full stack web developer",
 
     titles: {
-      personal: "personal info",
-      summary: "summary",
-      education: "education",
-      work: "work & experience",
-      skills: "skills",
+      Personal: "personal info",
+      Summary: "summary",
+      Education: "education",
+      Work: "work & experience",
+      Skills: "skills",
       BarSkills: "bar skills",
-      language: "languages",
-      links: "links",
-      blocks: "Blocks",
-      projects: "Projects"
+      Language: "languages",
+      Links: "links",
+      Blocks: "Blocks",
+      Projects: "Projects"
     },
-    personal: {
+    Personal: {
       firstName: "ibrahim",
       lastName: "ahmad",
       email: "ibra16@itc.edu.jo",
@@ -29,7 +29,7 @@ export default new Vuex.Store({
       birthday: "14 Jul. 1995",
       address: "Marka, Amman"
     },
-    education: [
+    Education: [
       {
         id: 0,
         name: "Software Engineering",
@@ -40,7 +40,7 @@ export default new Vuex.Store({
         disc: "any"
       }
     ],
-    work: [
+    Work: [
       {
         id: 0,
         company: "a",
@@ -50,13 +50,13 @@ export default new Vuex.Store({
         disc: "e"
       }
     ],
-    skills: [
+    Skills: [
       {
         id: 0,
         skill: ""
       }
     ],
-    blocks: [
+    Blocks: [
       {
         id: 0,
         title: ""
@@ -69,9 +69,9 @@ export default new Vuex.Store({
         level: "weak"
       }
     ],
-    projects: [{ id: 0, title: "", description: "" }],
-    languages: [{ id: 0, lang: "arabic", level: "fluent" }],
-    linksList: [
+    Projects: [{ id: 0, title: "", description: "" }],
+    Languages: [{ id: 0, lang: "arabic", level: "fluent" }],
+    LinksList: [
       { type: "facebook", icon: "facebook-square", username: "" },
       { type: "Instagram", icon: "instagram", username: "" },
       { type: "Twitter", icon: "twitter", username: "" },
@@ -90,15 +90,15 @@ export default new Vuex.Store({
       { type: "StackOverflow", icon: "stack-overflow", username: "" },
       { type: "JsFiddle", icon: "jsfiddle", username: "" }
     ],
-    skillsList: [
+    SkillsList: [
       { level: "weak", label: "Weak" },
       { level: "meduim", label: "Medium" },
       { level: "professional", label: "Professional" }
     ],
-    links: [{ id: 0, type: "Instagram", username: "" }],
-    certificates: {},
-    training: {},
-    newSections: {}
+    Links: [{ id: 0, type: "Instagram", username: "" }],
+    Certificates: {},
+    Training: {},
+    NewSections: {}
   },
   mutations: {
     SET_OBJ: (state, objName) => (state.objName = objName),
