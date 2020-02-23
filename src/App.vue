@@ -1,45 +1,33 @@
 <template>
   <v-app>
+    <v-dialog v-model="titleWindow" max-width="80%">
+      <v-card class="p-4">
+        <h4>Set new Title for : {{ currentTitle }}</h4>
+        <v-text-field v-model="newTitle"></v-text-field>
+        <v-btn color="success" @click="saveTitle">save</v-btn>
+        <v-btn color="red" @click="titleWindow = false">cancel</v-btn>
+      </v-card>
+    </v-dialog>
     <v-container>
-      <!-- stepper start -->
-      <v-dialog v-model="titleWindow" max-width="80%">
-        <v-card class="p-4">
-          <h4>Set new Title for : {{ currentTitle }}</h4>
-          <v-text-field v-model="newTitle"></v-text-field>
-          <v-btn color="success" @click="saveTitle">save</v-btn>
-        </v-card>
-      </v-dialog>
-      <v-stepper v-model="e1" vertical>
-        <template v-for="(sec, n) in sections">
-          <v-stepper-step :key="`${n}-step`" :complete="e1 > n" :step="n" editable>
-            <div>
-              {{ sec }}
-              <v-btn text color="success" @click.stop="editTitle(sec)">edit title</v-btn>
-            </div>
-          </v-stepper-step>
-
-          <v-stepper-content :key="`${n}-c`" :step="n">
-            <v-card class="mb-12">
-              <keep-alive>
-                <component :is="getKeyOfValue(sec) + 'Elem'"></component>
-              </keep-alive>
-            </v-card>
-
-            <v-btn color="primary" @click="nextStep(n)">Continue</v-btn>
-          </v-stepper-content>
-
-          <v-divider v-if="n !== steps" :key="n"></v-divider>
-        </template>
-
-        <!-- stepper items start-->
+      <v-stepper v-model="e1">
+        <v-stepper-header>
+          <template v-for="n in titles">
+            <v-stepper-step :key="`${n}-step`" :step="n" editable>
+              {{ n }}
+              <v-btn text color="success" @click.stop="editTitle(n)">edit title</v-btn>
+            </v-stepper-step>
+          </template>
+        </v-stepper-header>
         <v-stepper-items>
-          <!-- stepper content -->
+          <v-stepper-content v-for="n in titles" :key="`${n}-content`" :step="n">
+            <keep-alive>
+              <component :is="getKeyOfValue(n) + 'Elem'"></component>
+            </keep-alive>
 
-          <!-- stepper content -->
+            <v-btn text>Cancel</v-btn>
+          </v-stepper-content>
         </v-stepper-items>
-        <!-- stepper items end -->
       </v-stepper>
-      <!-- stepper end -->
     </v-container>
     <CvComponent />
   </v-app>
@@ -123,3 +111,13 @@ export default {
   }
 };
 </script>
+<style>
+.v-stepper__label {
+  display: inline !important
+}
+.v-stepper__header {
+  display: flex;
+  justify-content: inherit;
+  height: auto;
+}
+</style>
