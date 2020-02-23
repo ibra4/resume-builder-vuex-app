@@ -66,6 +66,7 @@ import skillsElem from './components/formComponents/skillsElem.vue'
 import BarSkillsElem from './components/formComponents/BarSkillsElem'
 import linksElem from './components/formComponents/linksElem.vue'
 import BlocksElem from './components/formComponents/BlocksElem.vue'
+import ProjectsElem from './components/formComponents/ProjectsElem.vue'
 
 import { mapState } from 'vuex'
 
@@ -96,7 +97,8 @@ export default {
     linksElem,
     BarSkillsElem,
     cvComponent,
-    BlocksElem
+    BlocksElem,
+    ProjectsElem
   },
   computed: {
     ...mapState({

@@ -18,7 +18,8 @@
           <!-- languages.vue -->
           <languages :title="titles.languages" />
 
-          <div class="para projects">
+          <Projects :title="titles.projects" />
+          <!-- <div class="para projects">
             <div class="title">
               <span>
                 <i class="fas fa-tasks"></i>
@@ -52,7 +53,7 @@
                 <div>Go to project</div>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="section-right">
           
@@ -86,6 +87,7 @@ import skills from "./cvParts/skills.vue";
 import BarSkills from "./cvParts/BarSkills.vue";
 import links from "./cvParts/links.vue";
 import Blocks from './cvParts/Blocks'
+import Projects from './cvParts/Projects.vue'
 
 export default {
   components: {
@@ -96,7 +98,8 @@ export default {
     skills,
     links,
     BarSkills,
-    Blocks
+    Blocks,
+    Projects
   },
   computed: mapState(["titles"])
 };

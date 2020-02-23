@@ -18,7 +18,8 @@ export default new Vuex.Store({
       BarSkills: "bar skills",
       language: "languages",
       links: "links",
-      blocks: "Blocks"
+      blocks: "Blocks",
+      projects: "Projects"
     },
     personal: {
       firstName: "ibrahim",
@@ -68,6 +69,7 @@ export default new Vuex.Store({
         level: "weak"
       }
     ],
+    projects: [{ id: 0, title: "", description: "" }],
     languages: [{ id: 0, lang: "arabic", level: "fluent" }],
     linksList: [
       { type: "facebook", icon: "facebook-square", username: "" },
