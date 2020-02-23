@@ -6,8 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     summary:
-      "Experienced full stack web developer with 3+ years of experience in designing and developing dynamic web application / software. Capable of understanding client requirements and translating into code to add new features or modifications for existing products",
-    jobTitle: "Full stack web developer",
+      "of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took",
+    jobTitle: "is simply dummy",
 
     titles: {
       Personal: "personal info",
@@ -22,12 +22,12 @@ export default new Vuex.Store({
       Projects: "Projects"
     },
     Personal: {
-      firstName: "ibrahim",
-      lastName: "ahmad",
+      firstName: "Lorem",
+      lastName: "Ipsum",
       email: "ibra16@itc.edu.jo",
       phone: "+962 78 0636 170",
       birthday: "14 Jul. 1995",
-      address: "Marka, Amman"
+      address: "Canada"
     },
     Education: [
       {
@@ -37,40 +37,71 @@ export default new Vuex.Store({
         start: "2018",
         end: "2021",
         grade: "Excellent",
-        disc: "any"
+        disc:
+          "Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum"
       }
     ],
     Work: [
       {
         id: 0,
-        company: "a",
-        major: "b",
-        start: "c",
-        end: "d",
-        disc: "e"
+        company: "first true generator",
+        major: "predefined chunks",
+        start: "2004",
+        end: "2010",
+        disc:
+          "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est"
+      },
+      {
+        id: 0,
+        company: "Bonorum et Malorum",
+        major: "predefined chunks",
+        start: "2016",
+        end: "2020",
+        disc:
+          "Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
       }
     ],
     Skills: [
-      {
-        id: 0,
-        skill: ""
-      }
+      { id: 0, skill: "Lorem ipsum dolor sit amet, consectetur adipiscing" },
+      { id: 1, skill: "Donec mattis lacus nec lectus venenatis" },
+      { id: 2, skill: "In tincidunt purus rhoncus risus malesuada tristique" }
     ],
     Blocks: [
-      {
-        id: 0,
-        title: ""
-      }
+      { id: 0, title: "Lorem" },
+      { id: 1, title: "Hampden Sydney" },
+      { id: 2, title: "Virginia" },
+      { id: 3, title: "looked up one" },
+      { id: 4, title: "obscure" }
     ],
     BarSkills: [
+      { id: 0, skill: "mistaken idea", level: "weak" },
+      { id: 1, skill: "actual teachings", level: "medium" },
+      { id: 2, skill: "Nor again", level: "professional" }
+    ],
+    Projects: [
       {
         id: 0,
-        skill: "",
-        level: "weak"
+        title: "Rackham",
+        description:
+          "but because occasionally circumstances occur in which toil and pain"
+      },
+      {
+        id: 1,
+        title: "But I must",
+        description: "except to obtain some advantage from it"
+      },
+      {
+        id: 2,
+        title: "Bonorum",
+        description:
+          "or one who avoids a pain that produces no resultant pleasure"
       }
     ],
-    Projects: [{ id: 0, title: "", description: "" }],
-    Languages: [{ id: 0, lang: "arabic", level: "fluent" }],
+    Languages: [
+      { id: 0, lang: "Arabic", level: "fluent" },
+      { id: 0, lang: "English", level: "Excelent" },
+      { id: 0, lang: "German", level: "Good" }
+    ],
     LinksList: [
       { type: "facebook", icon: "facebook-square", username: "" },
       { type: "Instagram", icon: "instagram", username: "" },
@@ -95,7 +126,10 @@ export default new Vuex.Store({
       { level: "meduim", label: "Medium" },
       { level: "professional", label: "Professional" }
     ],
-    Links: [{ id: 0, type: "Instagram", username: "" }],
+    Links: [
+      { id: 0, type: "Instagram", username: "test_insta65649" },
+      { id: 1, type: "Facebook", username: "test_fb65649" }
+    ],
     Certificates: {},
     Training: {},
     NewSections: {}
