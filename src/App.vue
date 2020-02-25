@@ -11,20 +11,16 @@
     <v-container>
       <v-stepper v-model="e1">
         <v-stepper-header>
-          <template v-for="n in titles">
-            <v-stepper-step :key="`${n}-step`" :step="n" editable>
-              {{ n }}
-              <v-btn text color="success" @click.stop="editTitle(n)">edit title</v-btn>
-            </v-stepper-step>
-          </template>
+          <v-stepper-step v-for="n in titles" :key="`${n}-step`" :step="n" editable complete>
+            {{ n }}
+            <v-btn text color="success" @click.stop="editTitle(n)">edit title</v-btn>
+          </v-stepper-step>
         </v-stepper-header>
         <v-stepper-items>
           <v-stepper-content v-for="n in titles" :key="`${n}-content`" :step="n">
             <keep-alive>
               <component :is="getKeyOfValue(n) + 'Elem'"></component>
             </keep-alive>
-
-            <v-btn text>Cancel</v-btn>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -113,11 +109,16 @@ export default {
 </script>
 <style>
 .v-stepper__label {
-  display: inline !important
+  display: inline !important;
 }
 .v-stepper__header {
   display: flex;
-  justify-content: inherit;
   height: auto;
+}
+.v-stepper__step--editable {
+  flex: 33.333%;
+}
+.v-stepper__step--active {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
