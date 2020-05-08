@@ -1,14 +1,23 @@
 <template>
   <div>
-    <div class="cvbody" id="cvbody">
-      <div class="top-line"></div>
+    <button @click="onPrint()">test</button>
+    <div
+      class="cvbody"
+      id="cvbody"
+      ref="test"
+      style="font-size: 13px;font-family: 'Josefin Sans', sans-serif;font-size=13px;letter-spacing:1px;word-spacing:2px;border:1px solid #9654d8;width:21cm;height:29.7cm;box-sizing:border-box;position:relative"
+    >
+      <div
+        class="top-line"
+        style="position:absolute;backgroud-color:#9654d8;width:100%;height:20px;top:0;background-color: #9654d8;"
+      ></div>
 
       <!-- personal.vue -->
       <Personal :title="titles.Personal" />
 
-      <div class="clearer"></div>
+      <div class="clearer" style="clear:both;"></div>
       <div class="sections">
-        <div class="section-left">
+        <div class="section-left" style="float:left;width:50%">
           <!-- education.vue -->
           <Education :title="titles.Education" />
 
@@ -21,7 +30,7 @@
           <!-- Projects.vue -->
           <Projects :title="titles.Projects" />
         </div>
-        <div class="section-right">
+        <div class="section-right" style="float:left;width:50%">
           <!-- skills.vue -->
           <Skills :title="titles.Skills" />
 
@@ -36,7 +45,10 @@
         </div>
       </div>
 
-      <div class="bottom-line"></div>
+      <div
+        class="bottom-line"
+        style="position:absolute;backgroud-color:#9654d8;width:100%;height:20px;bottom:0;background-color: #9654d8;"
+      ></div>
     </div>
   </div>
 </template>
@@ -66,285 +78,18 @@ export default {
     Blocks,
     Projects
   },
-  computed: mapState(["titles"])
+  computed: mapState(["titles"]),
+  methods: {
+    onPrint() {
+      console.log(this.$refs.test.outerHTML);
+    }
+  }
 };
 </script>
 
 <style>
-/* 
-    purple  = #9654d8;
-    gray    = #e4e9ed;
-*/
-body {
-  /* font-family: 'Source Code Pro', monospace; */
-}
-body * {
-  box-sizing: border-box;
-}
-.cvbody {
-  font-family: "Josefin Sans", sans-serif;
-  perspective: 1000;
-  font-size: 13px;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  /* zoom: 200%; */
-  border: 1px solid #9654d8;
-  width: 21cm;
-  height: 29.7cm;
-  box-sizing: border-box;
-  position: relative;
-  margin: 50px auto;
-}
-.top-line,
-.bottom-line {
-  position: absolute;
-  background-color: #9654d8;
-  width: 100%;
-  height: 20px;
-}
-.top-line {
-  top: 0;
-}
-.bottom-line {
-  bottom: 0;
-}
-/************************   header   ************************/
-.header {
-  margin-top: 30px;
-}
-.header > div,
-.sections > div {
-  float: left;
-  /* display: inline-block; */
-  /* border: #f00 1px solid */
-}
-.header .header-left {
-  width: 65%;
-  display: flex
-}
-.header .header-right {
-  width: 35%;
-  background-color: #e4e9ed;
-}
-.image-container {
-  height: 150px;
-  width: 150px;
-  margin-left: 15px;
-}
-.summary {
-  width: 60%;
-}
-.summary .full-name {
-  color: #9654d8;
-  font-size: 28px !important;
-}
-.image-container,
-.summary {
-  display: inline-block;
-  overflow: hidden;
-}
-.summary {
-  padding-left: 20px;
-}
-.image-container img {
-  width: 100%;
-}
-/************************   info   ************************/
 
-.header .information {
-  padding: 10px;
-  background-color: #e4e9ed !important;
-}
-.information > div {
-  margin-top: 10px;
-}
-.information i {
-  color: #e4e9ed;
-  background-color: #9654d8;
-  padding: 5px;
-  border-radius: 50%;
-}
-.information span {
-  color: #212529;
-  margin-left: 5px;
-}
-.information h3 {
-  margin-left: 5px;
-}
-/************************   global   ************************/
-.title {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-h1.title {
-  font-size: 20px;
-}
-h2.title {
-  font-size: 18px;
-}
-h3.title {
-  font-size: 16px;
-}
-.clearer {
-  clear: both;
-}
-.no-style {
-  list-style: none;
-}
-a,
-a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-/************************   sections   ************************/
-.sections > div {
-  /* display: inline-block; */
-  float: left;
-  width: 50%;
-}
-.sections .para {
-  position: relative;
-}
-.title span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-  line-height: 30px;
-  vertical-align: middle;
-  font-size: 16px;
-}
-.section-left .title span {
-  color: #e4e9ed;
-  background-color: #9654d8;
-}
-.section-right .title span {
-  color: #9654d8;
-  /* border-left: #9654d8 2px solid; */
-}
-.section-right .title span:not(.first-right) {
-  border-left: #9654d8 2px solid;
-}
-.sections .para .title {
-  padding-left: 35px;
-  display: inline-block;
-}
-/************************   para (work and education)   ************************/
-.para {
-  padding-right: 5px;
-  margin-top: 10px;
-}
-.para .title {
-  border-bottom: 2px solid #9654d8;
-  width: 100%;
-  line-height: 30px;
-  vertical-align: middle;
-  font-size: 14px;
-  font-weight: bold;
-}
-.para .exp.first {
-  background-color: #e4e9ed;
-}
-.para .exp {
-  padding: 10px 10px;
-  /* margin-right: 20px; */
-}
-.edu .exp div:first-of-type {
-  font-size: 12px;
-  color: #2e3131;
-  font-weight: bold;
-}
-.edu .exp div:nth-of-type(2) {
-  font-weight: bold;
-  margin-top: 3px;
-}
-.edu .exp div:nth-of-type(2),
-.para .exp .spec {
-  text-transform: capitalize;
-}
-.para .exp .spec {
-  border-bottom: 1px solid #9654d8;
-  color: #9654d8;
-  display: inline-block;
-  font-weight: bold;
-}
-.edu .exp p {
-  color: #2e3131;
-  font-size: 12px;
-  margin-top: 2px;
-}
-.para .work-list {
-  list-style: circle;
-  margin-top: 10px;
-}
-.para .work-list li {
-  margin-top: 10px;
-}
-/************************   skills   ************************/
-.skills ul .main {
-  margin-left: 0;
-  color: #9654d8;
-  font-size: 14px;
-  text-transform: capitalize;
-}
-.skills ul li:not(.main) {
-  margin-top: 5px;
-  position: relative;
-  padding-left: 20px;
-  font-size: 12px;
-  text-transform: initial;
-  display: flex;
-  align-items: center;
-}
-.skills ul li:not(.main)::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 5px;
-  width: 10px;
-  border-left: 3px solid #9654d8;
-  border-bottom: 3px solid #9654d8;
-}
-/************************   pro-lang   ************************/
-.pro-lang ul li {
-  display: inline-block;
-  background-color: #9654d8;
-  color: #e4e9ed;
-  padding: 4px 8px;
-  border-radius: 5px;
-  margin-top: 5px;
-  margin-right: 5px;
-}
-/************************   sw-skills   ************************/
-.sw-skills .title {
-  margin-bottom: 15px;
-}
-.sw-skills .skill {
-  margin-bottom: 17px;
-  margin-top: 3px;
-  height: 19px;
-  background-color: #e4e9ed;
-  border: 1px solid #9654d8;
-  padding: 1px;
-  width: 60%;
-  position: relative;
-  text-align: center;
-  color: #9654d8;
-  overflow: hidden;
-}
-.sw-skills .skill .level {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  height: 15px;
-  background-color: #e4e9ed;
-  line-height: 15px;
-  vertical-align: middle;
-  text-align: center;
-}
-.professional {
+/* .professional {
   width: 95%;
   background-color: #34f61d !important;
 }
@@ -356,11 +101,6 @@ a:hover {
   width: 50%;
   background-color: #cddc5d !important;
 }
-/************************   lang   ************************/
-.lang div span:last-of-type {
-  float: right;
-}
-/************************   links   ************************/
 .links .exp {
   text-align: center;
 }
@@ -376,5 +116,5 @@ a:hover {
 }
 .links svg {
   font-size: 30px;
-}
+} */
 </style>
