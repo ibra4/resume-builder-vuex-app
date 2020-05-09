@@ -4,37 +4,35 @@
       <v-content>
         <v-row>
           <v-col cols="12" md="6">
-            <text-field :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'" />
+            <text-field :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'" :defaultValue="edu.name" />
           </v-col>
           <v-col cols="12" md="6">
             <text-field
-              :targetElem="objName + '|' + 'school' + '|' + edu.id"
-              :name="'school name'"
-            />
+              :targetElem="objName + '|' + 'school' + '|' + edu.id" :name="'school name'" :defaultValue="edu.school" />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="4">
-            <text-field :targetElem="objName + '|' + 'start' + '|' + edu.id" :name="'from'" />
+            <text-field :targetElem="objName + '|' + 'start' + '|' + edu.id" :name="'from'" :defaultValue="edu.start" />
           </v-col>
           <v-col cols="12" md="6" lg="4">
-            <text-field :targetElem="objName + '|' + 'end' + '|' + edu.id" :name="'to'" />
+            <text-field :targetElem="objName + '|' + 'end' + '|' + edu.id" :name="'to'" :defaultValue="edu.end" />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="4">
-            <text-field :targetElem="objName + '|' + 'grade' + '|' + edu.id" :name="'degree'" />
+            <text-field :targetElem="objName + '|' + 'grade' + '|' + edu.id" :name="'degree'" :defaultValue="edu.disc" />
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'" />
+            <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'" :defaultValue="edu.grade" />
           </v-col>
         </v-row>
       </v-content>
       <v-btn
         color="error"
-        v-if="obj.length > 1"
+        v-if="edu.length > 1"
         @click="deleteObj(edu.id)"
         class="btn btn-danger"
       >delete {{edu.id}}</v-btn>

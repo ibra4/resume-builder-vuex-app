@@ -5,10 +5,12 @@
         <text-field
           :targetElem="objName + '|title|' + project.id"
           :name="'project ' + (project.id + 1)"
+          :defaultValue="project.title"
         />
         <text-area
           :targetElem="objName + '|description|' + project.id"
           :name="'project ' + (project.id + 1)"
+          :defaultValue="project.description"
         />
         <button
           v-if="obj.length > 1"

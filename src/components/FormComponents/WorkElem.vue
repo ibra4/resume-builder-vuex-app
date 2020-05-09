@@ -3,24 +3,24 @@
     <div v-for="w in obj" :key="w.id">
       <v-row>
         <v-col cols="12" md="6">
-          <text-field :targetElem="objName + '|' + 'company' + '|' + w.id" :name="'Company'" />
+          <text-field :targetElem="objName + '|' + 'company' + '|' + w.id" :name="'Company'" :defaultValue="w.company" />
         </v-col>
         <v-col cols="12" md="6">
-          <text-field :targetElem="objName + '|' + 'major' + '|' + w.id" :name="'major'" />
+          <text-field :targetElem="objName + '|' + 'major' + '|' + w.id" :name="'major'" :defaultValue="w.major" />
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="objName + '|' + 'start' + '|' + w.id" :name="'from'" />
+          <text-field :targetElem="objName + '|' + 'start' + '|' + w.id" :name="'from'" :defaultValue="w.start" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="objName + '|' + 'end' + '|' + w.id" :name="'to'" />
+          <text-field :targetElem="objName + '|' + 'end' + '|' + w.id" :name="'to'" :defaultValue="w.end" />
         </v-col>
       </v-row>
       <!-- <button class="btn btn-primary">add list</button> -->
       <v-row>
         <v-col cols="12" md="6" lg="4">
-          <text-area :targetElem="objName + '|' + 'disc' + '|' + w.id" :label="'discripiton'" />
+          <text-area :targetElem="objName + '|' + 'disc' + '|' + w.id" :label="'discripiton'" :defaultValue="w.disc" />
         </v-col>
       </v-row>
       <v-btn

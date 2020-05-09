@@ -21,7 +21,11 @@ export default {
     label: String,
     targetElem: String,
     items: Array,
-    targetProperty: String
+    targetProperty: String,
+    defaultValue: ""
+  },
+  mounted() {
+    this.value = this.defaultValue
   },
   methods: {
     updateVar(e) {

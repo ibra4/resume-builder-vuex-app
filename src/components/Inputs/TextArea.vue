@@ -13,7 +13,11 @@ export default {
   props: {
     label: String,
     targetElem: String,
-    val: String
+    val: String,
+    defaultValue: ""
+  },
+  mounted() {
+    this.value = this.defaultValue
   },
   methods: {
     updateVar(e) {

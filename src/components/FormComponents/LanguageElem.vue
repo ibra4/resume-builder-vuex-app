@@ -3,10 +3,10 @@
     <div v-for="lang in obj" :key="lang.id">
       <div class="row">
         <div class="col-md-6">
-          <text-field :targetElem="objName + '|lang|' + lang.id" :name="'language'" />
+          <text-field :targetElem="objName + '|lang|' + lang.id" :name="'language'" :defaultValue="lang.lang" />
         </div>
         <div class="col-md-6">
-          <text-field :targetElem="objName + '|level|' + lang.id" :name="'level'" />
+          <text-field :targetElem="objName + '|level|' + lang.id" :name="'level'" :defaultValue="lang.level" />
         </div>
       </div>
       <button

@@ -3,27 +3,24 @@
     <v-content>
       <v-row>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.firstName'" :name="'first name'" />
+          <text-field :targetElem="'Personal.firstName'" :name="'first name'" :defaultValue="Personal.firstName" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.lastName'" :name="'last name'" />
+          <text-field :targetElem="'Personal.lastName'" :name="'last name'" :defaultValue="Personal.lastName" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.email'" :name="'E-mail'" />
+          <text-field :targetElem="'Personal.email'" :name="'E-mail'" :defaultValue="Personal.email" />
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.phone'" :name="'phone number'" />
+          <text-field :targetElem="'Personal.phone'" :name="'phone number'" :defaultValue="Personal.phone" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.birthday'" :name="'date of birth'" />
+          <text-field :targetElem="'Personal.birthday'" :name="'date of birth'" :defaultValue="Personal.birthday" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.address'" :name="'address'" />
-        </v-col>
-        <v-col cols="12" md="6" lg="4">
-          <text-field :targetElem="'Personal.summary'" :name="'summary'" />
+          <text-field :targetElem="'Personal.address'" :name="'address'" :defaultValue="Personal.address" />
         </v-col>
       </v-row>
     </v-content>

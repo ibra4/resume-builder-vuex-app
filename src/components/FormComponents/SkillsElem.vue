@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div v-for="sk in obj" :key="sk.id" class="col-md-6">
-        <text-field :targetElem="objName + '|skill|' + sk.id" :name="'skill ' + (sk.id + 1)" />
+        <text-field :targetElem="objName + '|skill|' + sk.id" :name="'skill ' + (sk.id + 1)" :defaultValue="sk.skill" />
         <button
           v-if="obj.length > 1"
           @click="deleteObj(sk.id)"

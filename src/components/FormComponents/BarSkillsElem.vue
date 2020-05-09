@@ -7,10 +7,12 @@
           :label="'select a level'"
           :targetElem="objName + '|level|' + sk.id"
           :targetProperty="'label'"
+          :defaultValue="sk.level"
         />
         <text-field
           :targetElem="objName + '|skill|' + sk.id"
           :name="'skill with bar' + (sk.id + 1)"
+          :defaultValue="sk.skill"
         />
         <button
           v-if="obj.length > 1"
