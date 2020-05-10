@@ -1,5 +1,7 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-      ? '/resume-builder-vue-app/'
-      : '/'
+  lintOnSave: true,
+  filenameHashing: false,
+  chainWebpack: config => {
+    config.optimization.delete('splitChunks')
   }
+};
