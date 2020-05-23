@@ -6,8 +6,9 @@
           :items="skillsList"
           :label="'select a level'"
           :targetElem="objName + '|level|' + sk.id"
-          :targetProperty="'label'"
           :defaultValue="sk.level"
+          :itemLabel="'label'"
+          :itemValue="'level'"
         />
         <text-field
           :targetElem="objName + '|skill|' + sk.id"

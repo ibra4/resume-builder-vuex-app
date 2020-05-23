@@ -5,7 +5,8 @@
         :items="linksList"
         :label="'select a link'"
         :targetElem="objName + '|type|' + link.id"
-        :targetProperty="'type'"
+        :itemValue="'type'"
+        :itemLabel="'label'"
       />
       <span>
         <text-field :targetElem="objName + '|username|' + link.id" :name="'link'" />
@@ -31,8 +32,7 @@ export default {
   data: () => {
     return {
       category: "",
-      objName: "Links",
-      items: ["facebook", "twitter", "linkedin"]
+      objName: "Links"
     };
   },
   components: {

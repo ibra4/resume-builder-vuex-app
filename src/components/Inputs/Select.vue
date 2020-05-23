@@ -2,10 +2,11 @@
   <div>
     <v-select
       :items="items"
-      :lebel="label"
-      :item-text="targetProperty"
+      :label="label"
       v-model="value"
       v-on:change="updateVar"
+      :item-value="itemValue"
+      :item-text="itemLabel"
     ></v-select>
   </div>
 </template>
@@ -21,11 +22,9 @@ export default {
     label: String,
     targetElem: String,
     items: Array,
-    targetProperty: String,
-    defaultValue: ""
-  },
-  mounted() {
-    this.value = this.defaultValue
+    defaultValue: "",
+    itemLabel: "",
+    itemValue: ""
   },
   methods: {
     updateVar(e) {
