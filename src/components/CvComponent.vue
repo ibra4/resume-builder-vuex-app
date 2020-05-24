@@ -87,13 +87,11 @@ body * {
   font-size: 13px;
   letter-spacing: 1px;
   word-spacing: 2px;
-  /* zoom: 200%; */
   border: 1px solid #9654d8;
   width: 21cm;
   height: 29.7cm;
   box-sizing: border-box;
   position: relative;
-  margin: 50px auto;
 }
 .top-line,
 .bottom-line {

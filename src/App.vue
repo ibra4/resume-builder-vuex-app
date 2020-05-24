@@ -2,7 +2,7 @@
   <v-app>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-6 col-12 pt-0">
           <v-dialog v-model="titleWindow" max-width="80%">
             <v-card class="p-4">
               <h4>Set new Title for : {{ currentTitle }}</h4>
@@ -15,8 +15,8 @@
             <v-stepper v-model="e1">
               <v-stepper-header>
                 <v-stepper-step v-for="n in titles" :key="`${n}-step`" :step="n" editable complete>
-                  {{ n }}
-                  <v-btn text color="success" @click.stop="editTitle(n)">edit title</v-btn>
+                  <v-btn text class="w-100 d-block" color="info">{{ n }}</v-btn>
+                  <v-btn class="w-100 d-block" color="success" @click.stop="editTitle(n)">edit title</v-btn>
                 </v-stepper-step>
               </v-stepper-header>
               <v-stepper-items>
@@ -30,7 +30,11 @@
           </v-container>
         </div>
         <div class="col-lg-6 col-12">
-          <CvComponent />
+          <div class="overflow-scroll">
+            <div class="overflow-wrapper">
+              <CvComponent />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -116,8 +120,28 @@ export default {
 };
 </script>
 <style>
+@media (max-width: 576px) {
+  .overflow-scroll {
+    overflow: scroll;
+  }
+  .overflow-scroll > .overflow-wrapper {
+    transform: scale(0.7);
+  }
+  .overflow-scroll > .overflow-wrapper > * {
+    float: left;
+    border: 2px solid black;
+    padding: 10px
+  }
+  .v-stepper__step--editable {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .v-stepper__step--editable:last-of-type {
+    border-bottom: unset;
+  }
+}
 .v-stepper__label {
   display: inline !important;
+  margin: auto
 }
 .v-stepper__header {
   display: flex;
