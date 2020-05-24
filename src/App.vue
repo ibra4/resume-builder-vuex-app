@@ -122,7 +122,7 @@ export default {
 <style>
 @media (max-width: 576px) {
   .overflow-scroll {
-    overflow: scroll;
+    overflow: scroll ;
   }
   .overflow-scroll > .overflow-wrapper {
     transform: scale(0.7);
