@@ -9,30 +9,34 @@
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
-          <!-- education.vue -->
-          <Education :title="titles.Education" />
+          <draggable>
+            <!-- education.vue -->
+            <Education :title="titles.Education" />
 
-          <!-- work.vue -->
-          <Work :title="titles.Work" />
+            <!-- work.vue -->
+            <Work :title="titles.Work" />
 
-          <!-- languages.vue -->
-          <Languages :title="titles.Languages" />
+            <!-- languages.vue -->
+            <Languages :title="titles.Languages" />
 
-          <!-- Projects.vue -->
-          <Projects :title="titles.Projects" />
+            <!-- Projects.vue -->
+            <Projects :title="titles.Projects" />
+          </draggable>
         </div>
         <div class="section-right">
-          <!-- skills.vue -->
-          <Skills :title="titles.Skills" />
+          <draggable>
+            <!-- skills.vue -->
+            <Skills :title="titles.Skills" />
 
-          <!-- BarSkills.vue -->
-          <BarSkills :title="titles.BarSkills" />
+            <!-- BarSkills.vue -->
+            <BarSkills :title="titles.BarSkills" />
 
-          <!-- Blocks.vue -->
-          <Blocks :title="titles.Blocks" />
+            <!-- Blocks.vue -->
+            <Blocks :title="titles.Blocks" />
 
-          <!-- links.vue -->
-          <Links :title="titles.Links" />
+            <!-- links.vue -->
+            <Links :title="titles.Links" />
+          </draggable>
         </div>
       </div>
 
@@ -54,6 +58,8 @@ import Links from "./CvParts/Links";
 import Blocks from "./CvParts/Blocks";
 import Projects from "./CvParts/Projects";
 
+import draggable from 'vuedraggable'
+
 export default {
   components: {
     Personal,
@@ -64,7 +70,8 @@ export default {
     Links,
     BarSkills,
     Blocks,
-    Projects
+    Projects,
+    draggable
   },
   computed: mapState(["titles"])
 };
