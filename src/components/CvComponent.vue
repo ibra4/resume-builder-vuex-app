@@ -9,33 +9,37 @@
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
-          <draggable>
-            <!-- education.vue -->
-            <Education :title="titles.Education" />
+          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions">
+            <transition-group type="transition" :name="!drag ? 'flip-list' : null">
+              <!-- education.vue -->
+              <Education key="education" :title="titles.Education" />
 
-            <!-- work.vue -->
-            <Work :title="titles.Work" />
+              <!-- work.vue -->
+              <Work key="work" :title="titles.Work" />
 
-            <!-- languages.vue -->
-            <Languages :title="titles.Languages" />
+              <!-- languages.vue -->
+              <Languages key="languages" :title="titles.Languages" />
 
-            <!-- Projects.vue -->
-            <Projects :title="titles.Projects" />
+              <!-- Projects.vue -->
+              <Projects key="projects" :title="titles.Projects" />
+            </transition-group>
           </draggable>
         </div>
         <div class="section-right">
-          <draggable>
-            <!-- skills.vue -->
-            <Skills :title="titles.Skills" />
-
-            <!-- BarSkills.vue -->
-            <BarSkills :title="titles.BarSkills" />
-
-            <!-- Blocks.vue -->
-            <Blocks :title="titles.Blocks" />
-
-            <!-- links.vue -->
-            <Links :title="titles.Links" />
+          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions">
+            <transition-group type="transition" :name="!drag ? 'flip-list' : null">
+              <!-- skills.vue -->
+              <Skills key="skills" :title="titles.Skills" />
+  
+              <!-- BarSkills.vue -->
+              <BarSkills key="barSkills" :title="titles.BarSkills" />
+  
+              <!-- Blocks.vue -->
+              <Blocks key="blocks" :title="titles.Blocks" />
+  
+              <!-- links.vue -->
+              <Links key="links" :title="titles.Links" />
+            </transition-group>
           </draggable>
         </div>
       </div>
@@ -73,7 +77,24 @@ export default {
     Projects,
     draggable
   },
-  computed: mapState(["titles"])
+  data() {
+    return {
+      drag: false
+    };
+  },
+  computed: {
+    ...mapState({
+      titles: "titles"
+    }),
+    dragOptions() {
+      return {
+        animation: 200,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      };
+    }
+  }
 };
 </script>
 
