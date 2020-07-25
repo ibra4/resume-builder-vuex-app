@@ -9,36 +9,60 @@
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
-          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions">
+          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions" handle=".handle">
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- education.vue -->
-              <Education key="education" :title="titles.Education" />
+              <div key="education" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Education :title="titles.Education" />
+              </div>
 
               <!-- work.vue -->
-              <Work key="work" :title="titles.Work" />
+              <div key="work" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Work key="work" :title="titles.Work" />
+              </div>
 
               <!-- languages.vue -->
-              <Languages key="languages" :title="titles.Languages" />
+              <div key="languages" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Languages key="languages" :title="titles.Languages" />
+              </div>
 
               <!-- Projects.vue -->
-              <Projects key="projects" :title="titles.Projects" />
+              <div key="projects" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Projects key="projects" :title="titles.Projects" />
+              </div>
             </transition-group>
           </draggable>
         </div>
         <div class="section-right">
-          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions">
+          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions" handle=".handle">
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- skills.vue -->
-              <Skills key="skills" :title="titles.Skills" />
+              <div key="skills" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Skills key="skills" :title="titles.Skills" />
+              </div>
   
               <!-- BarSkills.vue -->
-              <BarSkills key="barSkills" :title="titles.BarSkills" />
+              <div key="barSkills" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <BarSkills key="barSkills" :title="titles.BarSkills" />
+              </div>
   
               <!-- Blocks.vue -->
-              <Blocks key="blocks" :title="titles.Blocks" />
+              <div key="blocks" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Blocks key="blocks" :title="titles.Blocks" />
+              </div>
   
               <!-- links.vue -->
-              <Links key="links" :title="titles.Links" />
+              <div key="links" class="drag-item">
+                <div class="fa fa-arrows-alt handle text-muted">Move</div>
+                <Links key="links" :title="titles.Links" />
+              </div>
             </transition-group>
           </draggable>
         </div>
@@ -108,6 +132,17 @@ body {
 }
 body * {
   box-sizing: border-box;
+}
+.drag-item {
+  position: relative;
+}
+.drag-item .handle {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  z-index: 2;
+  cursor: move;
+  font-size: 18px;
 }
 .cvbody {
   font-family: "Josefin Sans", sans-serif;
