@@ -173,6 +173,12 @@ body * {
 .header {
   margin-top: 30px;
 }
+.sections {
+  display: flex;
+}
+.sections .list-group, .list-group span {
+  height: 100%;
+}
 .header > div,
 .sections > div {
   float: left;
