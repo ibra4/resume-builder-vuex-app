@@ -2,6 +2,7 @@ import Vue from "vue";
 import vuetify from "./plugins/vuetify";
 import App from "./App.vue";
 import store from "./store";
+import '@babel/polyfill'
 
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -29,7 +30,9 @@ import {
   faJsfiddle
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
+import VueHtml2Canvas from 'vue-html2canvas';
+ 
+Vue.use(VueHtml2Canvas);
 library.add(
   faFacebookSquare,
   faInstagram,
@@ -53,6 +56,7 @@ library.add(
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(vuetify);
+Vue.use(VueHtml2Canvas);
 
 Vue.config.productionTip = false;
 

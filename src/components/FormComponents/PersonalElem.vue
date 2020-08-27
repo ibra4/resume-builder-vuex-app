@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-content>
+    <v-main>
       <v-row>
         <v-col cols="12" md="6" lg="4">
           <text-field :targetElem="'Personal.firstName'" :name="'first name'" :defaultValue="Personal.firstName" />
@@ -23,7 +23,7 @@
           <text-field :targetElem="'Personal.address'" :name="'address'" :defaultValue="Personal.address" />
         </v-col>
       </v-row>
-    </v-content>
+    </v-main>
   </div>
 </template>
 
