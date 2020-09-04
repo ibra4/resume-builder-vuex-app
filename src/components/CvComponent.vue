@@ -9,7 +9,14 @@
       <div class="clearer"></div>
       <div class="sections">
         <div class="section-left">
-          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions" handle=".handle">
+          <draggable
+            group="test"
+            class="list-group"
+            @start="drag = true"
+            @end="drag = false"
+            v-bind="dragOptions"
+            handle=".handle"
+          >
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- education.vue -->
               <div key="education" class="drag-item">
@@ -38,26 +45,33 @@
           </draggable>
         </div>
         <div class="section-right">
-          <draggable group="test" class="list-group" @start="drag = true" @end="drag = false" v-bind="dragOptions" handle=".handle">
+          <draggable
+            group="test"
+            class="list-group"
+            @start="drag = true"
+            @end="drag = false"
+            v-bind="dragOptions"
+            handle=".handle"
+          >
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- skills.vue -->
               <div key="skills" class="drag-item">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Skills key="skills" :title="titles.Skills" />
               </div>
-  
+
               <!-- BarSkills.vue -->
               <div key="barSkills" class="drag-item">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <BarSkills key="barSkills" :title="titles.BarSkills" />
               </div>
-  
+
               <!-- Blocks.vue -->
               <div key="blocks" class="drag-item">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Blocks key="blocks" :title="titles.Blocks" />
               </div>
-  
+
               <!-- links.vue -->
               <div key="links" class="drag-item">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
@@ -70,6 +84,7 @@
 
       <div class="bottom-line"></div>
     </div>
+    <button @click="cp()">copy</button>
   </div>
 </template>
 
@@ -86,7 +101,7 @@ import Links from "./CvParts/Links";
 import Blocks from "./CvParts/Blocks";
 import Projects from "./CvParts/Projects";
 
-import draggable from 'vuedraggable'
+import draggable from "vuedraggable";
 
 export default {
   components: {
@@ -99,26 +114,40 @@ export default {
     BarSkills,
     Blocks,
     Projects,
-    draggable
+    draggable,
   },
   data() {
     return {
-      drag: false
+      drag: false,
     };
   },
   computed: {
     ...mapState({
-      titles: "titles"
+      titles: "titles",
     }),
     dragOptions() {
       return {
         animation: 200,
         group: "description",
         disabled: false,
-        ghostClass: "ghost"
+        ghostClass: "ghost",
       };
+    },
+  },
+  methods: {
+    cp: () => {
+      var move = document.getElementsByClassName('fa-arrows-alt');
+      for (let el of document.querySelectorAll('.appBanner')) el.style.visibility = 'hidden';
+      move.css
+      var htmlText = document.getElementById("cvbody");
+      const el = document.createElement("textarea");
+      el.value = htmlText.outerHTML;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
     }
-  }
+  },
 };
 </script>
 
@@ -176,7 +205,8 @@ body * {
 .sections {
   display: flex;
 }
-.sections .list-group, .list-group span {
+.sections .list-group,
+.list-group span {
   height: 100%;
 }
 .header > div,
@@ -187,7 +217,7 @@ body * {
 }
 .header .header-left {
   width: 65%;
-  display: flex
+  display: flex;
 }
 .header .header-right {
   width: 35%;

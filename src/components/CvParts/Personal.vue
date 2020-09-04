@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-left">
       <div class="image-container">
-        <img src="../../assets/pic/user.png" alt />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU" alt />
       </div>
       <div class="summary">
         <h1 class="title full-name">{{ fullName }}</h1>
@@ -14,19 +14,19 @@
       <h3 class="title">{{ title }}</h3>
       <div>
         <i class="fas fa-map-marker-alt"></i>
-        <span>{{ Personal.address }}</span>
+        <span><b>Address: </b>{{ Personal.address }}</span>
       </div>
       <div>
         <i class="fas fa-birthday-cake"></i>
-        <span>{{ Personal.birthday }}</span>
+        <span><b>Birthday: </b>{{ Personal.birthday }}</span>
       </div>
       <div>
         <i class="fas fa-envelope-open"></i>
-        <span>{{ Personal.email }}</span>
+        <span>Email: {{ Personal.email }}</span>
       </div>
       <div>
         <i class="fas fa-phone"></i>
-        <span>{{ Personal.phone }}</span>
+        <span>Phone: {{ Personal.phone }}</span>
       </div>
     </div>
   </div>

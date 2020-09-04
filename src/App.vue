@@ -2,7 +2,7 @@
   <v-app>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6 col-12 pt-0">
+        <!-- <div class="col-lg-6 col-12 pt-0"> -->
           <v-dialog v-model="titleWindow" max-width="80%">
             <v-card class="p-4">
               <h4>Set new Title for : {{ currentTitle }}</h4>
@@ -28,14 +28,14 @@
               </v-stepper-items>
             </v-stepper>
           </v-container>
-        </div>
-        <div class="col-lg-6 col-12">
+        <!-- </div> -->
+        <!-- <div class="col-lg-6 col-12"> -->
           <div class="overflow-scroll">
             <div class="overflow-wrapper">
               <CvComponent />
             </div>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
   </v-app>
