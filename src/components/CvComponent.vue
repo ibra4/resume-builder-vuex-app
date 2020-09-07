@@ -136,16 +136,19 @@ export default {
   },
   methods: {
     async handlePrint(htmlText) {
-      const response = await fetch("http://127.0.0.1:8000/api/resume", {
+      await fetch("http://127.0.0.1:8000/api/resume", {
         method: "POST",
         headers: {
           Authorization:
             "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMjc5YzYwN2M2ZmE1NWFjMzgwM2QwYjIzZDQ3NTBiM2FkMTQzMmEyYTZkMzZlZjg5ZDY3MmQ2OTI2ZDlkNmEwMjRhZmE3ZTg2YzRjZDkyODMiLCJpYXQiOjE1OTk0MzY0MTgsIm5iZiI6MTU5OTQzNjQxOCwiZXhwIjoxNjMwOTcyNDE4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.fZ5qRXq69sI31gm2HqAerNlygSa0OP-kAln5bY3l3o8IzOKSX59guzqix9yz2fS2EUpoYGJlOinD0vO1a2fBB6fAEAkdj_rLYud1_meN5__Lz6i3sMfVHKa7TGd17CE5eLBiAqNvX2xr1FPs4b7_MH5CDYheKBKCt5Zr0JuHrOk_OasSfu-uw_nQS9fjj_ik_FXfhXtkxhTlNNIwnUOTE_t0-T2rkHHgBbU2SmZfnjzCSTQl4khlebgjwgWcY3k3LSP3azMHurPFUm412quUHkxCfmjSH4Msm6Yi3Xszd5Gr6e6Fx2BYav1VoHHZhdIa2XDos5_GMhq3xSwyONdJdVcnY6bnuIluZUXwg8vG5oHK-PZ22PvUbTCZ36sHKHxkXS_trfK_gm8uWZAYkNV4mXCrzvaJkBAsDGlpZv4Z8IDJ7dci1YUhplxh04tRD5bjzdj0SD0k8C7OHp1xvmGIYF7uYM5oOI76I87-qs1z8cMe0-JZVKR8r9AIJDWPn_RY_0fXd5_gAdpiZut0qduHl4CXqiZ_INqYcv8hK7XxtgYytcLQtQp3_LBL4LCPD3CdJNmUyp4Fhw2WpG_THTyrywgIKnYd9MdrSR_rS1OsdpEkviWHrqN-X1jUAhSYECuciZF2tZMeR5bb1kc_qy2bIduG_NKBoSopQkZdjlyYSJI",
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          jsonData: htmlText,
-          templateId: 1
+          jsonData: "test",
+          template_id: 1,
+          user_id: 1,
+          html: htmlText,
         }),
       });
     },
