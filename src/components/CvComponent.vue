@@ -136,7 +136,7 @@ export default {
   },
   methods: {
     async handlePrint(htmlText) {
-      await fetch("http://127.0.0.1:8000/api/resume", {
+      const response = await fetch("http://127.0.0.1:8000/api/resume", {
         method: "POST",
         headers: {
           Authorization:
@@ -151,6 +151,7 @@ export default {
           html: htmlText,
         }),
       });
+      await response.json().then((data) => console.log(data));
     },
     async cp() {
       var move = document.getElementsByClassName("fa-arrows-alt");
