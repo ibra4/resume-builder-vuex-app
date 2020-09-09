@@ -1,32 +1,44 @@
 <template>
-  <div class="header">
+  <div>
     <div class="header-left">
       <div class="image-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU" alt />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU"
+          alt
+        />
       </div>
-      <div class="summary">
+      <!-- <div class="summary">
         <h1 class="title full-name">{{ fullName }}</h1>
         <h2 class="title">- {{ jobTitle }}</h2>
-        <p>{{ summary }}</p>
-      </div>
+      </div>-->
     </div>
-    <div class="header-right information">
+    <div class="para">
       <h3 class="title">{{ title }}</h3>
-      <div>
-        <i class="fas fa-map-marker-alt"></i>
-        <span><b>Address: </b>{{ Personal.address }}</span>
-      </div>
-      <div>
-        <i class="fas fa-birthday-cake"></i>
-        <span><b>Birthday: </b>{{ Personal.birthday }}</span>
-      </div>
-      <div>
-        <i class="fas fa-envelope-open"></i>
-        <span>Email: {{ Personal.email }}</span>
-      </div>
-      <div>
-        <i class="fas fa-phone"></i>
-        <span>Phone: {{ Personal.phone }}</span>
+      <div class="exp">
+        <div>
+          <span>
+            <b>Address:</b>
+            {{ Personal.address }}
+          </span>
+        </div>
+        <div>
+          <span>
+            <b>Birthday:</b>
+            {{ Personal.birthday }}
+          </span>
+        </div>
+        <div>
+          <span>
+            <b>Email:</b>
+            {{ Personal.email }}
+          </span>
+        </div>
+        <div>
+          <span>
+            <b>Phone:</b>
+            {{ Personal.phone }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -40,11 +52,11 @@ export default {
     ...mapState({
       Personal: "Personal",
       summary: "summary",
-      jobTitle: "jobTitle"
+      jobTitle: "jobTitle",
     }),
     fullName() {
       return this.Personal.firstName + " " + this.Personal.lastName;
-    }
-  }
+    },
+  },
 };
 </script>

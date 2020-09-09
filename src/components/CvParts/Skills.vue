@@ -1,11 +1,6 @@
 <template>
   <div class="para skills">
-    <div class="title">
-      <span class="first-right">
-        <i class="fas fa-swimmer"></i>
-      </span>
-      {{ title }}
-    </div>
+    <div class="title">{{ title }}</div>
     <ul class="no-style exp">
       <li v-for="(sk, index) in skills" :key="index">{{ sk.skill }}</li>
     </ul>
@@ -19,8 +14,8 @@ export default {
   props: ["title"],
   computed: {
     ...mapState({
-      skills: "Skills"
-    })
-  }
+      skills: "Skills",
+    }),
+  },
 };
 </script>

@@ -1,13 +1,9 @@
 <template>
-  <div class="para lang">
-    <div class="title">
-      <span>
-        <i class="fas fa-language"></i>
-      </span>languages
-    </div>
+  <div>
+    <div class="title">languages</div>
     <div class="exp">
       <div v-for="(lang, index) in languages" :key="index">
-        <span>{{ lang.lang }}</span>
+        <span style="padding-right: 10px">{{ lang.lang }} :</span>
         <span>{{ lang.level }}</span>
       </div>
     </div>
@@ -21,8 +17,8 @@ export default {
   props: ["title"],
   computed: {
     ...mapState({
-      languages: "Languages"
-    })
-  }
+      languages: "Languages",
+    }),
+  },
 };
 </script>

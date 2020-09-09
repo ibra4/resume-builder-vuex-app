@@ -1,9 +1,6 @@
 <template>
   <div class="para pro-lang">
     <div class="title">
-      <span>
-        <i class="fas fa-swimmer"></i>
-      </span>
       {{ title }}
     </div>
     <ul class="no-style exp">

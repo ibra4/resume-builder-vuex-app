@@ -1,8 +1,7 @@
 <template>
-  <div class="para links">
+  <div>
     <div class="title">
       <span class="first-right">
-        <i class="fa fa-link"></i>
       </span>
       {{ title }}
     </div>
