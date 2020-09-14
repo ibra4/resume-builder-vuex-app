@@ -77,6 +77,7 @@ import BarSkillsElem from "./components/FormComponents/BarSkillsElem";
 import LinksElem from "./components/FormComponents/LinksElem";
 import BlocksElem from "./components/FormComponents/BlocksElem";
 import ProjectsElem from "./components/FormComponents/ProjectsElem";
+import CertificatesElem from "./components/FormComponents/CertificatesElem";
 
 import { mapState } from "vuex";
 
@@ -128,6 +129,7 @@ export default {
     BarSkillsElem,
     BlocksElem,
     ProjectsElem,
+    CertificatesElem,
     CvComponent,
   },
   computed: {

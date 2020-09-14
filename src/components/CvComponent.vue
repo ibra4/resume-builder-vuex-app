@@ -68,6 +68,12 @@
             <Skills key="skills" :title="titles.Skills" />
           </div>
 
+           <!-- skills.vue -->
+          <div key="certificates" class="drag-item from-right para" id="Certificates">
+            <div class="fa fa-arrows-alt handle text-muted">Move</div>
+            <Certificates key="certificates" :title="titles.Certificates" />
+          </div>
+
           <!-- BarSkills.vue -->
           <div key="barSkills" class="drag-item from-right" id="BarSkills">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
@@ -98,6 +104,7 @@ import BarSkills from "./CvParts/BarSkills";
 import Links from "./CvParts/Links";
 import Blocks from "./CvParts/Blocks";
 import Projects from "./CvParts/Projects";
+import Certificates from "./CvParts/Certificates";
 
 import draggable from "vuedraggable";
 
@@ -112,6 +119,7 @@ export default {
     BarSkills,
     Blocks,
     Projects,
+    Certificates,
     draggable,
   },
   data() {
@@ -248,7 +256,7 @@ gray #7d7d7d
 }
 .fa-arrows-alt {
   position: absolute;
-  top: 15px;
+  top: 7px;
   right: 5px;
   cursor: move;
 }
@@ -289,5 +297,17 @@ p {
 }
 img {
   width: 100%;
+}
+.link {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.link a {
+  color: inherit !important;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+.certificate-item td {
+  padding-bottom: 15px;
 }
 </style>

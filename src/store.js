@@ -15,11 +15,12 @@ export default new Vuex.Store({
       Education: "education",
       Work: "work & experience",
       Skills: "skills",
+      Blocks: "Another skills",
       BarSkills: "bar skills",
       Language: "languages",
       Links: "links",
-      Blocks: "Blocks",
-      Projects: "Projects"
+      Projects: "Projects",
+      Certificates: 'Certificates'
     },
     Personal: {
       firstName: "Lorem",
@@ -127,10 +128,13 @@ export default new Vuex.Store({
       { level: "professional", label: "Professional" }
     ],
     Links: [
-      { id: 0, type: "", username: "test_insta65649" },
-      { id: 1, type: "", username: "test_fb65649" }
+      { id: 0, type: "Twitter", username: "test_insta65649", link: 'https://twitter.com/ibra4' },
+      { id: 1, type: "Facebook", username: "test_fb65649", link: 'https://facebook.com/ibra4' }
     ],
-    Certificates: {},
+    Certificates: [
+      { id: 0, name: 'test certificate 1', company: 'company name 1', hours: 7 },
+      { id: 1, name: 'test certificate 2', company: 'company name 2', hours: 15 },
+    ],
     Training: {},
     NewSections: {}
   },

@@ -7,9 +7,9 @@
     </div>
     <div class="exp">
       <div v-for="(link, index) in links" :key="index" class="link">
-        <font-awesome-icon v-if="link.type != ''" :icon="[ 'fab', getIcon(link.type) ]" />
-        <p>{{ link.type }}</p>
-        <p>{{ link.username }}</p>
+        <!-- <font-awesome-icon v-if="link.type != ''" :icon="[ 'fab', getIcon(link.type) ]" /> -->
+        <span><b>- {{ link.type }}</b></span><br>
+        <span><a :href="link.link">{{ link.username }}</a></span><br>
       </div>
     </div>
   </div>

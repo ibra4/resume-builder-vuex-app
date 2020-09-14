@@ -2,10 +2,12 @@
   <div>
     <div class="title">languages</div>
     <div class="exp">
-      <div v-for="(lang, index) in languages" :key="index">
-        <span style="padding-right: 10px">{{ lang.lang }} :</span>
-        <span>{{ lang.level }}</span>
-      </div>
+      <table style="width: 100%">
+        <tr v-for="(lang, index) in languages" :key="index">
+          <td style="padding-right: 10px">{{ lang.lang }} :</td>
+          <td>{{ lang.level }}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
