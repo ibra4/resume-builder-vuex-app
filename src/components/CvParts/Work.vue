@@ -1,7 +1,7 @@
 <template>
   <div class="para">
     <div class="title">{{ title }}</div>
-    <table>
+    <table class="exp">
       <tr v-for="(w, index) in work" :key="index">
         <!-- <div v-if="w.company"> -->
         <td>

@@ -3,27 +3,8 @@
     <div class="cvbody" id="cvbody">
       <!-- personal.vue -->
       <div class="header cv-left">
-        <Personal :title="titles.Personal" />
-        <!-- education.vue -->
-        <div key="education" class="drag-item">
-          <div class="fa fa-arrows-alt handle text-muted">Move</div>
-          <Education :title="titles.Education" />
-        </div>
+        <Personal :title="titles.Personal" id="Personal" />
 
-        <!-- languages.vue -->
-        <div key="languages" class="drag-item">
-          <div class="fa fa-arrows-alt handle text-muted">Move</div>
-          <Languages key="languages" :title="titles.Languages" />
-        </div>
-
-        <!-- links.vue -->
-        <div key="links" class="drag-item">
-          <div class="fa fa-arrows-alt handle text-muted">Move</div>
-          <Links key="links" :title="titles.Links" />
-        </div>
-      </div>
-
-      <div class="cv-right">
         <draggable
           group="test"
           class="list-group"
@@ -32,36 +13,69 @@
           v-bind="dragOptions"
           handle=".handle"
         >
-          <h1 class="name">{{personal.firstName}} {{personal.lastName}}</h1>
-          <div class="para">
-            <div class="title">Summary</div>
-            <p class="summary">{{ summary }}</p>
+          <!-- education.vue -->
+          <div key="education" class="drag-item from-left" id="Education">
+            <div class="fa fa-arrows-alt handle text-muted">Move</div>
+            <Education :title="titles.Education" />
           </div>
+
+          <!-- languages.vue -->
+          <div key="languages" class="drag-item para from-left">
+            <div class="fa fa-arrows-alt handle text-muted">Move</div>
+            <Languages key="languages" :title="titles.Languages" id="Language" />
+          </div>
+
+          <!-- links.vue -->
+          <div key="links" class="drag-item para from-left" id="Links">
+            <div class="fa fa-arrows-alt handle text-muted">Move</div>
+            <Links key="links" :title="titles.Links" />
+          </div>
+        </draggable>
+      </div>
+
+      <div class="cv-right">
+        <!-- Name -->
+        <h1 class="name">{{personal.firstName}} {{personal.lastName}}</h1>
+
+        <!-- Summary -->
+        <div class="para" id="Summary">
+          <div class="title">Summary</div>
+          <p class="summary">{{ summary }}</p>
+        </div>
+
+        <draggable
+          group="test"
+          class="list-group"
+          @start="drag = true"
+          @end="drag = false"
+          v-bind="dragOptions"
+          handle=".handle"
+        >
           <!-- work.vue -->
-          <div key="work" class="drag-item">
+          <div key="work" class="drag-item from-right" id="Work">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
             <Work key="work" :title="titles.Work" />
           </div>
 
           <!-- Projects.vue -->
-          <div key="projects" class="drag-item">
+          <div key="projects" class="drag-item from-right" id="Projects">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
             <Projects key="projects" :title="titles.Projects" />
           </div>
           <!-- skills.vue -->
-          <div key="skills" class="drag-item">
+          <div key="skills" class="drag-item from-right" id="Skills">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
             <Skills key="skills" :title="titles.Skills" />
           </div>
 
           <!-- BarSkills.vue -->
-          <div key="barSkills" class="drag-item">
+          <div key="barSkills" class="drag-item from-right" id="BarSkills">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
             <BarSkills key="barSkills" :title="titles.BarSkills" />
           </div>
 
           <!-- Blocks.vue -->
-          <div key="blocks" class="drag-item">
+          <div key="blocks" class="drag-item from-right" id="Blocks">
             <div class="fa fa-arrows-alt handle text-muted">Move</div>
             <Blocks key="blocks" :title="titles.Blocks" />
           </div>
@@ -170,10 +184,10 @@ gray #7d7d7d
 }
 
 .name {
-    text-align: center;
-    color: #914188;
-    padding: 10px;
-    border-bottom: 3px dashed #914188;
+  text-align: center;
+  color: #914188;
+  padding: 10px;
+  border-bottom: 3px dashed #914188;
 }
 
 .cv-left,
