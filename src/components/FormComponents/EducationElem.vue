@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="edu in obj" :key="edu.id">
-      <v-content>
+      <v-main>
         <v-row>
           <v-col cols="12" md="6">
             <text-field :targetElem="objName + '|' + 'name' + '|' + edu.id" :name="'major'" :defaultValue="edu.name" />
@@ -29,7 +29,7 @@
             <text-area :targetElem="objName + '|' + 'disc' + '|' + edu.id" :label="'discripiton'" :defaultValue="edu.grade" />
           </v-col>
         </v-row>
-      </v-content>
+      </v-main>
       <v-btn
         color="error"
         v-if="edu.length > 1"

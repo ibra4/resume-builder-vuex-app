@@ -4,7 +4,7 @@
       <div class="top-line"></div>
 
       <!-- personal.vue -->
-      <Personal :title="titles.Personal" />
+      <Personal :title="titles.Personal" id="Personal"/>
 
       <div class="clearer"></div>
       <div class="sections">
@@ -19,25 +19,25 @@
           >
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- education.vue -->
-              <div key="education" class="drag-item">
+              <div key="education" class="drag-item" id="Education">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Education :title="titles.Education" />
               </div>
 
               <!-- work.vue -->
-              <div key="work" class="drag-item">
+              <div key="work" class="drag-item" id="Work">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Work key="work" :title="titles.Work" />
               </div>
 
               <!-- languages.vue -->
-              <div key="languages" class="drag-item">
+              <div key="languages" class="drag-item" id="Language">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Languages key="languages" :title="titles.Languages" />
               </div>
 
               <!-- Projects.vue -->
-              <div key="projects" class="drag-item">
+              <div key="projects" class="drag-item" id="Projects">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Projects key="projects" :title="titles.Projects" />
               </div>
@@ -55,25 +55,25 @@
           >
             <transition-group type="transition" :name="!drag ? 'flip-list' : null">
               <!-- skills.vue -->
-              <div key="skills" class="drag-item">
+              <div key="skills" class="drag-item" id="Skills">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Skills key="skills" :title="titles.Skills" />
               </div>
 
               <!-- BarSkills.vue -->
-              <div key="barSkills" class="drag-item">
+              <div key="barSkills" class="drag-item" id="BarSkills">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <BarSkills key="barSkills" :title="titles.BarSkills" />
               </div>
 
               <!-- Blocks.vue -->
-              <div key="blocks" class="drag-item">
+              <div key="blocks" class="drag-item" id="Blocks">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Blocks key="blocks" :title="titles.Blocks" />
               </div>
 
               <!-- links.vue -->
-              <div key="links" class="drag-item">
+              <div key="links" class="drag-item" id="Links">
                 <div class="fa fa-arrows-alt handle text-muted">Move</div>
                 <Links key="links" :title="titles.Links" />
               </div>

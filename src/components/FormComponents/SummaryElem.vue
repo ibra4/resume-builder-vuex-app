@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-content>
+    <v-main>
       <v-row>
         <v-col cols="12" md="8">
           <text-field :targetElem="'jobTitle'" :name="'Job Title'" :defaultValue="jobTitle" />
@@ -11,7 +11,7 @@
           <text-area :targetElem="'summary'" :label="'short discription'" :defaultValue="summary" />
         </v-col>
       </v-row>
-    </v-content>
+    </v-main>
   </div>
 </template>
 

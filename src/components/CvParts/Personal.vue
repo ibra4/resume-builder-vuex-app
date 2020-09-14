@@ -4,7 +4,7 @@
       <div class="image-container">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU" alt />
       </div>
-      <div class="summary">
+      <div class="summary" id="Summary">
         <h1 class="title full-name">{{ fullName }}</h1>
         <h2 class="title">- {{ jobTitle }}</h2>
         <p>{{ summary }}</p>
