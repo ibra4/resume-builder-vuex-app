@@ -286,4 +286,7 @@ export default {
 .list-group {
   height: 100%;
 }
+.summary {
+  padding-left: 0;
+}
 </style>
