@@ -9,7 +9,8 @@
         :itemLabel="'label'"
       />
       <span>
-        <text-field :targetElem="objName + '|username|' + link.id" :name="'link'" />
+        <text-field :targetElem="objName + '|username|' + link.id" :name="'username'" />
+        <text-field :targetElem="objName + '|link|' + link.id" :name="'url'" />
       </span>
       <button
         v-if="obj.length > 1"
