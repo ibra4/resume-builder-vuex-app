@@ -10,7 +10,6 @@
       <div v-if="w.company">
         <div>{{ w.start }} - {{ w.end }}</div>
         <div>{{ w.company }}</div>
-        <div class="clearer"></div>
         <div class="spec">{{ w.major }}</div>
         <p>{{ w.disc }}</p>
       </div>

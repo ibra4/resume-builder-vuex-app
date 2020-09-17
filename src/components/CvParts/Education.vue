@@ -9,7 +9,6 @@
     <div v-for="(edu, index) in education" :key="index" class="exp" :class="{first : index == 0}">
       <div>{{ edu.start }} - {{ edu.end }}</div>
       <div>{{ edu.school }}</div>
-      <div class="clearer"></div>
       <div class="spec">{{ edu.name }}</div>
       <p>degree : {{ edu.grade }}</p>
       <p>{{ edu.disc }}</p>

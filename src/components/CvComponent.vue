@@ -154,6 +154,8 @@ export default {
       await response.json().then((data) => console.log(data));
     },
     async cp() {
+      document.querySelector('#Education .exp').style.height = document.querySelector('#Education .exp').offsetHeight + 'px'
+      document.querySelector('#Work .exp').style.height = document.querySelector('#Work .exp').offsetHeight + 'px'
       var move = document.getElementsByClassName("fa-arrows-alt");
       for (let el of document.querySelectorAll(".appBanner"))
         el.style.visibility = "hidden";
