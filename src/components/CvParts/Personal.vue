@@ -22,11 +22,11 @@
       </div>
       <div>
         <i class="fas fa-envelope-open"></i>
-        <span>Email: {{ Personal.email }}</span>
+        <span><b>Email: </b>{{ Personal.email }}</span>
       </div>
       <div>
         <i class="fas fa-phone"></i>
-        <span>Phone: {{ Personal.phone }}</span>
+        <span><b>Phone: </b>{{ Personal.phone }}</span>
       </div>
     </div>
   </div>

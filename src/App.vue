@@ -287,4 +287,16 @@ export default {
 .list-group {
   height: 100%;
 }
+.link {
+  padding-bottom: 10px;
+}
+.link a {
+  padding-left: 10px;
+}
+.project-item {
+  padding-bottom: 10px;
+}
+p {
+  margin-bottom: 0 !important;
+}
 </style>

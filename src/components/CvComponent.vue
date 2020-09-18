@@ -197,7 +197,7 @@ body * {
 .cvbody {
   font-family: "Josefin Sans", sans-serif;
   perspective: 1000;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 1px;
   word-spacing: 2px;
   border: 1px solid #9654d8;
@@ -254,7 +254,7 @@ body * {
 }
 .summary .full-name {
   color: #9654d8;
-  font-size: 28px !important;
+  font-size: 20px !important;
 }
 .image-container,
 .summary {
@@ -295,13 +295,13 @@ body * {
   letter-spacing: 1px;
 }
 h1.title {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 h2.title {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 h3.title {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 .clearer {
   clear: both;
@@ -354,12 +354,15 @@ a:hover {
   padding-right: 5px;
   margin-top: 10px;
 }
+.title {
+  font-size: 20px !important;
+}
 .para .title {
   border-bottom: 2px solid #9654d8;
   width: 100%;
   line-height: 30px;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: bold;
 }
 .para .exp.first {
@@ -367,7 +370,7 @@ a:hover {
 }
 .para .exp {
   padding: 10px 10px;
-  /* margin-right: 20px; */
+  padding-bottom: 0 !important;
 }
 .edu .exp div:first-of-type {
   font-size: 12px;
